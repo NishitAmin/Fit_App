@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    app:startDestination="@id/homeScreenFragment">
+
+    <fragment
+        android:id="@+id/homeScreenFragment"
+        android:name="org.rohan.patel.finalprojectandroid.Fragments.HomeFragment"
+        android:label="HomeScreenFragment" >
+        <action
+            android:id="@+id/action_homeScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="org.rohan.patel.finalprojectandroid.Fragments.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_appFragment"
+            app:destination="@id/appFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bmiFragment"
+        android:name="org.rohan.patel.finalprojectandroid.Fragments.BmiFragment"
+        android:label="BmiFragment" />
+    <fragment
+        android:id="@+id/appFragment"
+        android:name="org.rohan.patel.finalprojectandroid.Fragments.AppFragment"
+        android:label="AppFragment" >
+        <action
+            android:id="@+id/action_appFragment_to_bmiFragment"
+            app:destination="@id/bmiFragment" />
+        <action
+            android:id="@+id/action_appFragment_to_analyticsFragment"
+            app:destination="@id/analyticsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/analyticsFragment"
+        android:name="org.rohan.patel.finalprojectandroid.Fragments.AnalyticsFragment"
+        android:label="AnalyticsFragment" />
+</navigation>

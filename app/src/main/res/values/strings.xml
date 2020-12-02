@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">FinalProjectAndroid</string>
+    <string name="result_textview">Underweight = less than 18.5\nNormal weight = 18.5 – 24.9
+        \nOverweight = 25 – 29.9\nObesity = BMI of 30 or greater
+    </string>
 </resources>
