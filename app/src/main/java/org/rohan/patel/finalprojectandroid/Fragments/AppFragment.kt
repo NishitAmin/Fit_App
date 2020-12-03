@@ -25,6 +25,9 @@ class AppFragment: Fragment() {
             view?.findNavController()?.navigate(R.id.action_appFragment_to_analyticsFragment)
         }
 
+        binding.buttonAddLog.setOnClickListener {
+            view?.findNavController()?.navigate(R.id.action_appFragment_to_addLogFragment)
+        }
         return binding.root
     }
 }

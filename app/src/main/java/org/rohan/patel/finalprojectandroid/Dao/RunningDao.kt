@@ -17,6 +17,6 @@ interface RunningDao{
     @Query("DELETE FROM running")
     fun deleteAll()
 
-    @Query("UPDATE FROM running SET DATE=:date, DISTANCE=:distance, SPEED=:speed WHERE id=:id")
+    @Query("UPDATE running SET DATE=:date, DISTANCE=:distance, SPEED=:speed WHERE id=:id")
     fun updateRunningEntity(date:String, distance:Float, speed:Float, id:Long )
 }

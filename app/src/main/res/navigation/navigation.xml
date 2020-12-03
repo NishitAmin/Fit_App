@@ -33,9 +33,16 @@
         <action
             android:id="@+id/action_appFragment_to_analyticsFragment"
             app:destination="@id/analyticsFragment" />
+        <action
+            android:id="@+id/action_appFragment_to_addLogFragment"
+            app:destination="@id/addLogFragment" />
     </fragment>
     <fragment
         android:id="@+id/analyticsFragment"
         android:name="org.rohan.patel.finalprojectandroid.Fragments.AnalyticsFragment"
         android:label="AnalyticsFragment" />
+    <fragment
+        android:id="@+id/addLogFragment"
+        android:name="org.rohan.patel.finalprojectandroid.Fragments.AddLogFragment"
+        android:label="AddLogFragment" />
 </navigation>
