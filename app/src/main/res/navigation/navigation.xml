@@ -6,7 +6,7 @@
     <fragment
         android:id="@+id/homeScreenFragment"
         android:name="org.rohan.patel.finalprojectandroid.Fragments.HomeFragment"
-        android:label="HomeScreenFragment" >
+        android:label="Welcome to Fit App">
         <action
             android:id="@+id/action_homeScreenFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
