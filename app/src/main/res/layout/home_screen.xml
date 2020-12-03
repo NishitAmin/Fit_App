@@ -10,14 +10,18 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome To Fit App"
+        android:layout_width="348dp"
+        android:layout_height="60dp"
+        android:text="Let's Get Started"
+        android:textAlignment="center"
+        android:textColor="#8C7D7D"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.189" />
+        app:layout_constraintVertical_bias="0.188" />
 
     <Button
         android:id="@+id/buttonGetStarted"
