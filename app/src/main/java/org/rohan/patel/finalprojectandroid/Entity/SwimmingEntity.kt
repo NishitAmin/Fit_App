@@ -12,12 +12,21 @@ data class SwimmingEntity (
     @ColumnInfo (name  = "date")
     var date : String,
 
-    @ColumnInfo(name = "speed")
+    @ColumnInfo(name = "reps")
     var reps : Float,
 
-    @ColumnInfo(name="kicks")
+    @ColumnInfo(name="sets")
     var sets : Int,
 
-    @ColumnInfo(name = "time")
-    var weight : Float
+    @ColumnInfo(name = "weight")
+    var weight : String,
+//
+//    @ColumnInfo(name = "speed")
+//    var speed : Float,
+
+//    @ColumnInfo(name="kicks")
+//    var kicks : Int,
+//
+//    @ColumnInfo(name = "time")
+//    var time : String
 )

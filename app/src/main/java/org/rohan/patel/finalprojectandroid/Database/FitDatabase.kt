@@ -26,7 +26,7 @@ abstract class FitDatabase : RoomDatabase(){
                 INSTANCE = Room.databaseBuilder(
                     context,
                     FitDatabase::class.java,
-                    "fitapp"
+                    "fitappdatabase"
                 ).build()
             }
             return INSTANCE as FitDatabase

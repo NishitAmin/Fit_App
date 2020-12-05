@@ -87,10 +87,11 @@
         android:id="@+id/input1"
         android:layout_width="91dp"
         android:layout_height="48dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="264dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="312dp"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:text="@={logViewModel.input1}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -98,9 +99,10 @@
         android:id="@+id/input2"
         android:layout_width="91dp"
         android:layout_height="48dp"
-        android:layout_marginTop="264dp"
+        android:layout_marginTop="312dp"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:text="@={logViewModel.input2}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,11 +112,24 @@
         android:id="@+id/input3"
         android:layout_width="91dp"
         android:layout_height="48dp"
-        android:layout_marginTop="264dp"
+        android:layout_marginTop="316dp"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:text="@={logViewModel.input3}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.878"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/dateField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="224dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.174"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

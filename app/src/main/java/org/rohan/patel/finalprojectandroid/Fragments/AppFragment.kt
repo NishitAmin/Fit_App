@@ -28,6 +28,10 @@ class AppFragment: Fragment() {
         binding.buttonAddLog.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_appFragment_to_addLogFragment)
         }
+
+        binding.buttonViewLogs.setOnClickListener {
+            view?.findNavController()?.navigate(R.id.action_appFragment_to_viewLogsFragment)
+        }
         return binding.root
     }
 }

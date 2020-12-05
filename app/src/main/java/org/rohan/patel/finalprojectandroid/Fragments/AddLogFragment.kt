@@ -47,6 +47,7 @@ class AddLogFragment : Fragment() {
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 Log.d("POSITION", ""+position)
+                addLogViewModel.selectedSpinnerIndex = position
                 if(position == 0){
                     weightLiftingIsSelected()
                 }

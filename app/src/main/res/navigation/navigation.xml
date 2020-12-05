@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_appFragment_to_addLogFragment"
             app:destination="@id/addLogFragment" />
+        <action
+            android:id="@+id/action_appFragment_to_viewLogsFragment"
+            app:destination="@id/viewLogsFragment" />
     </fragment>
     <fragment
         android:id="@+id/analyticsFragment"
@@ -45,4 +48,8 @@
         android:id="@+id/addLogFragment"
         android:name="org.rohan.patel.finalprojectandroid.Fragments.AddLogFragment"
         android:label="AddLogFragment" />
+    <fragment
+        android:id="@+id/viewLogsFragment"
+        android:name="org.rohan.patel.finalprojectandroid.Fragments.ViewLogsFragment"
+        android:label="ViewLogsFragment" />
 </navigation>
