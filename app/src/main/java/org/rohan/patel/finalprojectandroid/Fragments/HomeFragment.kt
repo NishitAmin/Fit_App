@@ -18,11 +18,13 @@ class HomeFragment: Fragment() {
                 R.layout.home_screen,container,false)
 
         binding.buttonGetStarted.setOnClickListener {
+            view?.findNavController()?.navigate(R.id.action_homeScreenFragment_to_signUpFragment)
+        }
+
+        binding.buttonGoToLogin.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_homeScreenFragment_to_loginFragment)
         }
 
-
         return binding.root
-
     }
 }
