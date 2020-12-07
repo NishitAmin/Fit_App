@@ -25,11 +25,11 @@
     <fragment
         android:id="@+id/bmiFragment"
         android:name="org.rohan.patel.finalprojectandroid.Fragments.BmiFragment"
-        android:label="BmiFragment" />
+        android:label="Body Mass Index" />
     <fragment
         android:id="@+id/appFragment"
         android:name="org.rohan.patel.finalprojectandroid.Fragments.AppFragment"
-        android:label="AppFragment" >
+        android:label="Home Page">
         <action
             android:id="@+id/action_appFragment_to_bmiFragment"
             app:destination="@id/bmiFragment" />
@@ -46,15 +46,15 @@
     <fragment
         android:id="@+id/analyticsFragment"
         android:name="org.rohan.patel.finalprojectandroid.Fragments.AnalyticsFragment"
-        android:label="AnalyticsFragment" />
+        android:label="Analytics Page" />
     <fragment
         android:id="@+id/addLogFragment"
         android:name="org.rohan.patel.finalprojectandroid.Fragments.AddLogFragment"
-        android:label="AddLogFragment" />
+        android:label="Add Your Log" />
     <fragment
         android:id="@+id/viewLogsFragment"
         android:name="org.rohan.patel.finalprojectandroid.Fragments.ViewLogsFragment"
-        android:label="ViewLogsFragment" />
+        android:label="View Logs" />
     <fragment
         android:id="@+id/signUpFragment"
         android:name="org.rohan.patel.finalprojectandroid.Fragments.SignUpFragment"

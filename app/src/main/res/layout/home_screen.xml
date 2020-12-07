@@ -15,7 +15,7 @@
         android:layout_marginTop="28dp"
         android:text="Let's Get Started"
         android:textAlignment="center"
-        android:textColor="#8C7D7D"
+        android:textColor="@color/colorAccent"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
