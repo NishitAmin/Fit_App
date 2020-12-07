@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="org.rohan.patel.finalprojectandroid.Fragments.LoginFragment"
-        android:label="LoginFragment" >
+        android:label="Login">
         <action
             android:id="@+id/action_loginFragment_to_appFragment"
             app:destination="@id/appFragment" />
@@ -58,5 +58,9 @@
     <fragment
         android:id="@+id/signUpFragment"
         android:name="org.rohan.patel.finalprojectandroid.Fragments.SignUpFragment"
-        android:label="SignUpFragment" />
+        android:label="Registration">
+        <action
+            android:id="@+id/action_signUpFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
+    </fragment>
 </navigation>

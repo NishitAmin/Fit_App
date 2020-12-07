@@ -29,7 +29,7 @@
             android:layout_height="57dp"
             android:ems="10"
             android:hint="Name"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +75,7 @@
         app:srcCompat="@drawable/loginimg" />
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/checkBoxTerms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="I Accept All Terms and Conditions"
@@ -87,19 +87,19 @@
             app:layout_constraintVertical_bias="0.726" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnRegister"
             android:layout_width="250dp"
             android:layout_height="60dp"
             android:layout_marginTop="44dp"
+            android:background="@drawable/custom_button_black"
             android:text="Register"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:background="@drawable/custom_button_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkBox"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxTerms"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
