@@ -1,6 +1,7 @@
 package org.rohan.patel.finalprojectandroid.Fragments
 
 import android.os.Bundle
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,17 +32,25 @@ class SignUpFragment: Fragment() {
         val application = requireNotNull(this.activity).application
         val loginDao = FitDatabase.getInstance(application).loginDao()
 
+//        val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+//        val email = binding.editTextEmail.text.toString().trim()
+
         binding.btnRegister.setOnClickListener {
-            if(binding.editTextName.text.trim().length>0 && binding.editTextEmail.text.trim().length>0 && binding.editTextPassword.text.trim().length>0 && binding.checkBoxTerms.isChecked==true){
+            if(binding.editTextName.text.trim().isEmpty()) {
+                Toast.makeText(activity, "Enter your full name!", Toast.LENGTH_SHORT).show()
+            }else if (binding.editTextEmail.text.trim().isEmpty()){
+                Toast.makeText(activity, "Enter valid email address!", Toast.LENGTH_SHORT).show()
+            }else if (binding.editTextPassword.text.trim().isEmpty()) {
+                Toast.makeText(activity, "Enter the PASSWORD!!", Toast.LENGTH_SHORT).show()
+            }else if (binding.checkBoxTerms.isChecked!=true) {
+                Toast.makeText(activity, "Accept our terms and conditions!!", Toast.LENGTH_SHORT).show()
+            }else{
                 val newUser = LoginEntity(0, editTextName.text.toString(), editTextEmail.text.toString(), editTextPassword.text.toString())
                 loginDao.userRegistration(newUser)
                 Toast.makeText(activity, "Registered!", Toast.LENGTH_SHORT).show()
                 view?.findNavController()?.navigate(R.id.action_signUpFragment_to_homeScreenFragment)
-            }else{
-                Toast.makeText(activity, "Fields cannot be empty!", Toast.LENGTH_SHORT).show()
             }
         }
-
         return binding.root
     }
 }
