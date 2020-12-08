@@ -20,6 +20,7 @@ import org.rohan.patel.finalprojectandroid.viewModels.AddLogViewModel
 import org.rohan.patel.finalprojectandroid.viewModels.LoginViewModel
 import org.rohan.patel.finalprojectandroid.viewModelsFactory.AddLogViewModelFactory
 import org.rohan.patel.roomdatabasesample.FitDatabase
+import java.util.regex.Pattern
 import kotlin.math.log
 
 class SignUpFragment: Fragment() {
@@ -32,13 +33,15 @@ class SignUpFragment: Fragment() {
         val application = requireNotNull(this.activity).application
         val loginDao = FitDatabase.getInstance(application).loginDao()
 
-//        val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
-//        val email = binding.editTextEmail.text.toString().trim()
+//        val emailPattern : Pattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+        val email = binding.editTextEmail.text.toString().trim()
 
         binding.btnRegister.setOnClickListener {
             if(binding.editTextName.text.trim().isEmpty()) {
                 Toast.makeText(activity, "Enter your full name!", Toast.LENGTH_SHORT).show()
             }else if (binding.editTextEmail.text.trim().isEmpty()){
+                Toast.makeText(activity, "Enter your Email Addres!", Toast.LENGTH_SHORT).show()
+            }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                 Toast.makeText(activity, "Enter valid email address!", Toast.LENGTH_SHORT).show()
             }else if (binding.editTextPassword.text.trim().isEmpty()) {
                 Toast.makeText(activity, "Enter the PASSWORD!!", Toast.LENGTH_SHORT).show()
