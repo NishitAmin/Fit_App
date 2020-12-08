@@ -40,9 +40,12 @@
 
         <Button
             android:id="@+id/buttonCalculate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="250sp"
+            android:layout_height="60sp"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
             android:text="CALCULATE"
+            android:background="@drawable/custom_button_grad_new"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

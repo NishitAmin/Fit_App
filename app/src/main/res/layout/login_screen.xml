@@ -12,13 +12,13 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:text="Login"
         android:textColor="#000000"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
@@ -26,7 +26,7 @@
         android:id="@+id/editTextEmail"
         android:layout_width="329dp"
         android:layout_height="57dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="18dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -38,7 +38,7 @@
         android:id="@+id/editTextPassword"
         android:layout_width="327dp"
         android:layout_height="57dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="18dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
@@ -51,25 +51,25 @@
         android:id="@+id/buttonLogin"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/custom_button_grad_new"
         android:text="Login"
-        android:background="@drawable/custom_button_black"
+        android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="147dp"
-        android:layout_height="129dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="310dp"
+        android:layout_height="221dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/loginimg" />
+        app:srcCompat="@drawable/login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -25,7 +25,7 @@
     <Button
         android:id="@+id/buttonGetStarted"
         android:layout_width="250dp"
-        android:background="@drawable/custom_button_lightblue"
+        android:background="@drawable/custom_button_grad_new"
         android:layout_height="60dp"
         android:layout_marginTop="28dp"
         android:text="Sign Up"
@@ -44,7 +44,7 @@
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:background="@drawable/custom_button_lightblue"
+        android:background="@drawable/custom_button_grad_new"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         android:textSize="20sp"

@@ -50,27 +50,33 @@
 
     <Button
         android:id="@+id/btnAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250sp"
+        android:layout_height="60sp"
         android:layout_marginTop="432dp"
+        android:background="@drawable/custom_button_grad_new"
+        android:onClick="@{()->logViewModel.onAddButtonClick()}"
         android:text="Add"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="@{()->logViewModel.onAddButtonClick()}"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250sp"
+        android:layout_height="60sp"
         android:layout_marginTop="508dp"
+        android:background="@drawable/custom_button_grad_new"
+        android:onClick="@{()->logViewModel.onDeleteButtonClick()}"
         android:text="Delete"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="@{()->logViewModel.onDeleteButtonClick()}"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
         android:id="@+id/switch1"

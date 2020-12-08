@@ -34,9 +34,7 @@ class SignUpFragment: Fragment() {
         binding.btnRegister.setOnClickListener {
             if(binding.editTextName.text.trim().length>0 && binding.editTextEmail.text.trim().length>0 && binding.editTextPassword.text.trim().length>0 && binding.checkBoxTerms.isChecked==true){
                 val newUser = LoginEntity(0, editTextName.text.toString(), editTextEmail.text.toString(), editTextPassword.text.toString())
-                doAsync {
-                    loginDao.userRegistration(newUser)
-                }
+                loginDao.userRegistration(newUser)
                 Toast.makeText(activity, "Registered!", Toast.LENGTH_SHORT).show()
                 view?.findNavController()?.navigate(R.id.action_signUpFragment_to_homeScreenFragment)
             }else{
