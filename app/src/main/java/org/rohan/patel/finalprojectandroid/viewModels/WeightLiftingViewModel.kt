@@ -1,7 +1,9 @@
 package org.rohan.patel.finalprojectandroid.viewModels
 
 import android.util.Log
+import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.databinding.ObservableInt
 import androidx.lifecycle.ViewModel
 import org.jetbrains.anko.doAsync
@@ -9,21 +11,24 @@ import org.jetbrains.anko.uiThread
 import org.rohan.patel.finalprojectandroid.Dao.WeightLiftingDao
 import org.rohan.patel.finalprojectandroid.Entity.WeightLiftingEntity
 import org.rohan.patel.finalprojectandroid.R
+import kotlin.coroutines.coroutineContext
 
 class WeightLiftingViewModel(val weightLiftingDao: WeightLiftingDao) : ViewModel() {
-    fun insert(reps:String, sets:String, weight:String){
+    fun insert(view: View, date:String, reps:String, sets:String, weight:String){
         if(reps!!.isEmpty() || sets!!.isEmpty() || weight!!.isEmpty()){
-            Log.d("EMPTY", "onAddButtonClick: FIELDS CANNOT BE EMPTY")
+            Toast.makeText(view.context, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
         }else {
-            Log.d("INSERT", "Value inserted")
             val newExercise = WeightLiftingEntity(
-                0, "",
+                0, date,
                 reps.toString().toInt(), sets.toString().toInt(),
                 weight.toString().toInt()
             )
             doAsync {
                 weightLiftingDao.insert(newExercise)
                 Log.d("INSERT", "insert: Inserted weightlifting exercise")
+                uiThread {
+                    Toast.makeText(view.context, "Log inserted", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
@@ -35,4 +40,51 @@ class WeightLiftingViewModel(val weightLiftingDao: WeightLiftingDao) : ViewModel
 
         }
     }
+
+    fun delete(logId:Long){
+        doAsync {
+            weightLiftingDao.delete(logId)
+        }
+    }
 }
+
+
+
+//package org.rohan.patel.finalprojectandroid.viewModels
+//
+//import android.util.Log
+//import android.widget.EditText
+//import androidx.databinding.ObservableInt
+//import androidx.lifecycle.ViewModel
+//import org.jetbrains.anko.doAsync
+//import org.jetbrains.anko.uiThread
+//import org.rohan.patel.finalprojectandroid.Dao.WeightLiftingDao
+//import org.rohan.patel.finalprojectandroid.Entity.WeightLiftingEntity
+//import org.rohan.patel.finalprojectandroid.R
+//
+//class WeightLiftingViewModel(val weightLiftingDao: WeightLiftingDao) : ViewModel() {
+//    fun insert(reps:String, sets:String, weight:String){
+//        if(reps!!.isEmpty() || sets!!.isEmpty() || weight!!.isEmpty()){
+//            Log.d("EMPTY", "onAddButtonClick: FIELDS CANNOT BE EMPTY")
+//        }else {
+//            Log.d("INSERT", "Value inserted")
+//            val newExercise = WeightLiftingEntity(
+//                0, "",
+//                reps.toString().toInt(), sets.toString().toInt(),
+//                weight.toString().toInt()
+//            )
+//            doAsync {
+//                weightLiftingDao.insert(newExercise)
+//                Log.d("INSERT", "insert: Inserted weightlifting exercise")
+//            }
+//        }
+//    }
+//
+//    fun select(){
+//        doAsync {
+//            val logs = weightLiftingDao.getAll()
+//            Log.d("SIZE", "SIZE IS "+logs.size)
+//
+//        }
+//    }
+//}

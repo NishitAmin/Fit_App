@@ -1,13 +1,10 @@
 package org.rohan.patel.finalprojectandroid.Fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.bmi_screen.*
@@ -23,31 +20,27 @@ class BmiFragment: Fragment() {
                 R.layout.bmi_screen,container,false)
 
         val application = requireNotNull(this.activity).application
-        val bmiDao = FitDatabase.getInstance(application).bmiDao()
-
-        //textResult.visibility = View.GONE
+        //val bmiDao = FitDatabase.getInstance(application).bmiDao()
 
         binding.buttonCalculate.setOnClickListener {
             if(binding.inputWeight.text.isNotEmpty() && binding.inputHeight.text.isNotEmpty()){
                 var bmi = 0.0
-
                 val weight = inputWeight.text.toString().toFloat()
                 val height = inputHeight.text.toString().toFloat()
-
 
                 bmi = ((weight/height/height * 10000).toDouble())
 
                 if(bmi<18.5){
-                    textBmi.text = "%.2f".format(bmi)
+                    textBmi.text = "Your BMI: %.2f".format(bmi)
                     textHealth.text = "Underweight"
                 }else if(bmi in 18.5..24.9){
-                    textBmi.text = "%.2f".format(bmi)
+                    textBmi.text = "Your BMI: %.2f".format(bmi)
                     textHealth.text = "Normal Weight"
                 }else if(bmi in 25.0..29.9){
-                    textBmi.text = "%.2f".format(bmi)
+                    textBmi.text = "Your BMI: %.2f".format(bmi)
                     textHealth.text = "Overweight"
                 }else if(bmi > 30){
-                    textBmi.text = "%.2f".format(bmi)
+                    textBmi.text = "Your BMI: %.2f".format(bmi)
                     textHealth.text = "Obesity"
                 }
 
@@ -58,19 +51,7 @@ class BmiFragment: Fragment() {
             }
         }
 
-//        var bmi = 0
-//        var weight = inputWeight.text.toString().toFloat()
-//        var height = inputHeight.text.toString().toFloat()
-//
-//        bmi = (weight/height*height).toInt()
-//
-//        binding.buttonCalculate.setOnClickListener {
-//            textBmi.text = bmi.toString()
-//        }
-
-
         return binding.root
-
-
+        
     }
 }

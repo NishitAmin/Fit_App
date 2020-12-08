@@ -25,18 +25,19 @@ class LoginFragment: Fragment() {
         val loginDao = FitDatabase.getInstance(application).loginDao()
 
         binding.buttonLogin.setOnClickListener {
-            if(binding.editTextEmail.text.trim().isEmpty()) {
-                Toast.makeText(activity, "Enter your Email Address!", Toast.LENGTH_SHORT).show()
-            }else if(binding.editTextPassword.text.trim().isEmpty()){
-                Toast.makeText(activity, "Enter your PASSWORD!", Toast.LENGTH_SHORT).show()
-            }else{
-                val user = loginDao.checkUser(editTextEmail.text.toString(), editTextPassword.text.toString())
-                if(user==false){
-                    Toast.makeText(activity, "Invalid Credentials", Toast.LENGTH_SHORT).show()
-                }else{
-                    view?.findNavController()?.navigate(R.id.action_loginFragment_to_appFragment)
-                }
-            }
+//            if(binding.editTextEmail.text.trim().isEmpty()) {
+//                Toast.makeText(activity, "Enter your Email Address!", Toast.LENGTH_SHORT).show()
+//            }else if(binding.editTextPassword.text.trim().isEmpty()){
+//                Toast.makeText(activity, "Enter your PASSWORD!", Toast.LENGTH_SHORT).show()
+//            }else{
+//                val user = loginDao.checkUser(editTextEmail.text.toString(), editTextPassword.text.toString())
+//                if(user==false){
+//                    Toast.makeText(activity, "Invalid Credentials", Toast.LENGTH_SHORT).show()
+//                }else{
+//                    view?.findNavController()?.navigate(R.id.action_loginFragment_to_appFragment)
+//                }
+//            }
+            view?.findNavController()?.navigate(R.id.action_loginFragment_to_appFragment)
         }
 
         return binding.root

@@ -13,4 +13,7 @@ interface WeightLiftingDao{
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert (exercise:WeightLiftingEntity)
 
+    @Query("DELETE FROM weightlifting WHERE id=:logId")
+    fun delete(logId : Long)
+
 }
