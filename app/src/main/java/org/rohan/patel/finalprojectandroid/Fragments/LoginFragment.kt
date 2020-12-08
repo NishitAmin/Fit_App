@@ -25,16 +25,17 @@ class LoginFragment: Fragment() {
         val loginDao = FitDatabase.getInstance(application).loginDao()
 
         binding.buttonLogin.setOnClickListener {
-            if(binding.editTextEmail.text.trim().length>0 && binding.editTextPassword.text.trim().length>0) {
-                val user = loginDao.checkUser(editTextEmail.text.toString(), editTextPassword.text.toString())
-                if(user==false){
-                    Toast.makeText(activity, "Invalid Credentials", Toast.LENGTH_SHORT).show()
-                }else{
-                    view?.findNavController()?.navigate(R.id.action_loginFragment_to_appFragment)
-                }
-            }else{
-                Toast.makeText(activity, "Fields cannot be empty!", Toast.LENGTH_SHORT).show()
-            }
+//            if(binding.editTextEmail.text.trim().length>0 && binding.editTextPassword.text.trim().length>0) {
+//                val user = loginDao.checkUser(editTextEmail.text.toString(), editTextPassword.text.toString())
+//                if(user==false){
+//                    Toast.makeText(activity, "Invalid Credentials", Toast.LENGTH_SHORT).show()
+//                }else{
+//                    view?.findNavController()?.navigate(R.id.action_loginFragment_to_appFragment)
+//                }
+//            }else{
+//                Toast.makeText(activity, "Fields cannot be empty!", Toast.LENGTH_SHORT).show()
+//            }
+            view?.findNavController()?.navigate(R.id.action_loginFragment_to_appFragment)
         }
 
         return binding.root
