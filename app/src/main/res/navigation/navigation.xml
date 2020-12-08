@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/homeScreenFragment"
-        android:name="org.rohan.patel.finalprojectandroid.Fragments.HomeFragment"
+        android:name="project.st991497190.vishvakumar.Fragments.HomeFragment"
         android:label="Welcome to Fit App">
         <action
             android:id="@+id/action_homeScreenFragment_to_loginFragment"
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="org.rohan.patel.finalprojectandroid.Fragments.LoginFragment"
+        android:name="project.st991497190.vishvakumar.Fragments.LoginFragment"
         android:label="Login">
         <action
             android:id="@+id/action_loginFragment_to_appFragment"
@@ -24,11 +24,11 @@
     </fragment>
     <fragment
         android:id="@+id/bmiFragment"
-        android:name="org.rohan.patel.finalprojectandroid.Fragments.BmiFragment"
+        android:name="project.st991497190.vishvakumar.Fragments.BmiFragment"
         android:label="Body Mass Index" />
     <fragment
         android:id="@+id/appFragment"
-        android:name="org.rohan.patel.finalprojectandroid.Fragments.AppFragment"
+        android:name="project.st991497190.vishvakumar.Fragments.AppFragment"
         android:label="Home Page">
         <action
             android:id="@+id/action_appFragment_to_bmiFragment"
@@ -45,19 +45,19 @@
     </fragment>
     <fragment
         android:id="@+id/analyticsFragment"
-        android:name="org.rohan.patel.finalprojectandroid.Fragments.AnalyticsFragment"
+        android:name="project.st991497190.vishvakumar.Fragments.AnalyticsFragment"
         android:label="Analytics Page" />
     <fragment
         android:id="@+id/addLogFragment"
-        android:name="org.rohan.patel.finalprojectandroid.Fragments.AddLogFragment"
+        android:name="project.st991497190.vishvakumar.Fragments.AddLogFragment"
         android:label="Add Your Log" />
     <fragment
         android:id="@+id/viewLogsFragment"
-        android:name="org.rohan.patel.finalprojectandroid.Fragments.ViewLogsFragment"
+        android:name="project.st991497190.vishvakumar.Fragments.ViewLogsFragment"
         android:label="View Logs" />
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="org.rohan.patel.finalprojectandroid.Fragments.SignUpFragment"
+        android:name="project.st991497190.vishvakumar.Fragments.SignUpFragment"
         android:label="Registration">
         <action
             android:id="@+id/action_signUpFragment_to_homeScreenFragment"

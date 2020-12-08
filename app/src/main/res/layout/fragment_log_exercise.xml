@@ -6,7 +6,7 @@
     <data>
         <variable
             name="logViewModel"
-            type="org.rohan.patel.finalprojectandroid.viewModels.AddLogViewModel" />
+            type="project.st991497190.vishvakumar.viewModels.AddLogViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -152,7 +152,7 @@
 <!--    <data>-->
 <!--        <variable-->
 <!--            name="logViewModel"-->
-<!--            type="org.rohan.patel.finalprojectandroid.viewModels.AddLogViewModel" />-->
+<!--            type="project.st991497190.vishvakumar.viewModels.AddLogViewModel" />-->
 <!--    </data>-->
 <!--<androidx.constraintlayout.widget.ConstraintLayout-->
 <!--    android:layout_width="match_parent"-->
