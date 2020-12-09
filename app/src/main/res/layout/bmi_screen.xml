@@ -16,91 +16,84 @@
             android:id="@+id/inputHeight"
             android:layout_width="207dp"
             android:layout_height="61dp"
+            android:layout_marginTop="9dp"
             android:ems="10"
             android:hint="Enter Your Height"
             android:inputType="number"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.485"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.332" />
+            app:layout_constraintTop_toBottomOf="@+id/inputWeight" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BMI"
+            android:layout_marginTop="27dp"
+            android:text="Check your BMI"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.124" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/buttonCalculate"
             android:layout_width="250sp"
             android:layout_height="60sp"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:text="CALCULATE"
+            android:layout_marginTop="27dp"
             android:background="@drawable/custom_button_grad_new"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="CALCULATE"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.904" />
+            app:layout_constraintTop_toBottomOf="@+id/textResult" />
 
         <TextView
             android:id="@+id/textResult"
-            android:layout_width="336dp"
-            android:layout_height="87dp"
+            android:layout_width="326dp"
+            android:layout_height="108dp"
+            android:layout_marginTop="27dp"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.36"
+            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.734" />
+            app:layout_constraintTop_toBottomOf="@+id/textHealth" />
 
         <TextView
             android:id="@+id/textBmi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="27dp"
             android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.467" />
+            app:layout_constraintTop_toBottomOf="@+id/inputHeight" />
 
         <EditText
             android:id="@+id/inputWeight"
             android:layout_width="213dp"
             android:layout_height="62dp"
+            android:layout_marginTop="18dp"
             android:ems="10"
             android:hint="Enter Your Weight"
             android:inputType="number"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.24" />
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <TextView
             android:id="@+id/textHealth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
             android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.544" />
+            app:layout_constraintTop_toBottomOf="@+id/textBmi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
