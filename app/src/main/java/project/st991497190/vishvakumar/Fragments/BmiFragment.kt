@@ -1,6 +1,7 @@
 package project.st991497190.vishvakumar.Fragments
 
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,8 @@ class BmiFragment: Fragment() {
 
         val application = requireNotNull(this.activity).application
         //val bmiDao = FitDatabase.getInstance(application).bmiDao()
+
+//        binding.textResult.movementMethod = ScrollingMovementMethod()
 
         binding.buttonCalculate.setOnClickListener {
             if(binding.inputWeight.text.isNotEmpty() && binding.inputHeight.text.isNotEmpty()){
