@@ -27,15 +27,12 @@ class SignUpFragment: Fragment() {
         val application = requireNotNull(this.activity).application
         val loginDao = FitDatabase.getInstance(application).loginDao()
 
-//        val emailPattern : Pattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
-        val email = binding.editTextEmail.text.toString().trim()
-
         binding.btnRegister.setOnClickListener {
             if(binding.editTextName.text.trim().isEmpty()) {
                 Toast.makeText(activity, "Enter your full name!", Toast.LENGTH_SHORT).show()
             }else if (binding.editTextEmail.text.trim().isEmpty()){
                 Toast.makeText(activity, "Enter your Email Addres!", Toast.LENGTH_SHORT).show()
-            }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            }else if (!Patterns.EMAIL_ADDRESS.matcher(editTextEmail.text.toString()).matches()){
                 Toast.makeText(activity, "Enter valid email address!", Toast.LENGTH_SHORT).show()
             }else if (binding.editTextPassword.text.trim().isEmpty()) {
                 Toast.makeText(activity, "Enter the PASSWORD!!", Toast.LENGTH_SHORT).show()
