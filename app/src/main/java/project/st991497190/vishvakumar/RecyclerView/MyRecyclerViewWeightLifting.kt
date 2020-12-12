@@ -1,6 +1,9 @@
 package project.st991497190.vishvakumar.RecyclerView
-
+// Rohan Patel - 991496523
 import android.app.AlertDialog
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
 import kotlinx.android.synthetic.main.list_view.view.*
 
 
@@ -11,9 +14,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import project.st991497190.vishvakumar.Entity.WeightLiftingEntity
 import project.st991497190.vishvakumar.Database.FitDatabase
+import project.st991497190.vishvakumar.Fragments.AddLogFragment
 import project.st991497190.vishvakumar.R
 
 class MyRecyclerViewWeightLifting(private var sampleList:List<WeightLiftingEntity>): RecyclerView.Adapter<MyRecyclerViewWeightLifting.MyViewHolder>() {
@@ -27,10 +32,18 @@ class MyRecyclerViewWeightLifting(private var sampleList:List<WeightLiftingEntit
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_view,parent,false);
-        itemView.setOnClickListener{
+        val viewHolder = MyViewHolder(itemView)
+        itemView.setOnClickListener{v->
             Toast.makeText(itemView.logDate.context,"You have selected ",Toast.LENGTH_SHORT).show()
+            var bundle = Bundle()
+            bundle.putInt("exerciseType",0)
+            Log.d("POS", "onCreateViewHolder: Adapter position is" +viewHolder.adapterPosition)
+            Log.d("POS", "onCreateViewHolder: ID is" +sampleList[viewHolder.adapterPosition].id)
+            bundle.putLong("exerciseId",sampleList[viewHolder.adapterPosition].id)
+
+            v.findNavController()?.navigate(R.id.action_viewLogsFragment_to_addLogFragment,bundle);
         }
-        return MyViewHolder(itemView)
+        return viewHolder
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {

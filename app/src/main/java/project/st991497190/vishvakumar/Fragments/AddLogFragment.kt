@@ -1,5 +1,5 @@
 package project.st991497190.vishvakumar.Fragments
-
+// Rohan Patel - 991496523
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
@@ -14,24 +14,35 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.fragment_log_exercise.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.doAsyncResult
+import org.jetbrains.anko.uiThread
 import project.st991497190.vishvakumar.R
 import project.st991497190.vishvakumar.databinding.FragmentLogExerciseBinding
 import project.st991497190.vishvakumar.viewModels.AddLogViewModel
 import project.st991497190.vishvakumar.viewModelsFactory.AddLogViewModelFactory
 
 import project.st991497190.vishvakumar.Database.FitDatabase
+import project.st991497190.vishvakumar.Entity.RunningEntity
+import project.st991497190.vishvakumar.Entity.WeightLiftingEntity
+import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.Future
 
 
 class AddLogFragment : Fragment() {
 
     var c: Calendar = Calendar.getInstance()
+    var exerciseType = -1
+    var exerciseId = -1L
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+
         val mainView: FragmentLogExerciseBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_log_exercise,
@@ -39,11 +50,14 @@ class AddLogFragment : Fragment() {
             false
         )
 
+
         // Adding View Model
         val application = requireNotNull(this.activity).application
         val weightLiftingDao = FitDatabase.getInstance(application).weightLiftingDao()
         val runningDao = FitDatabase.getInstance(application).runningDao()
         val swimmingDao = FitDatabase.getInstance(application).swimmingDao()
+
+
         val viewModelFactory = AddLogViewModelFactory(
             weightLiftingDao,
             runningDao,
@@ -53,6 +67,43 @@ class AddLogFragment : Fragment() {
         val addLogViewModel =
             ViewModelProviders.of(this, viewModelFactory).get(AddLogViewModel::class.java)
         mainView.logViewModel = addLogViewModel
+
+
+        try {
+
+            exerciseType = requireArguments().getInt("exerciseType")
+            exerciseId = requireArguments().getLong("exerciseId")
+            mainView.btnAdd.text = "UPDATE"
+            mainView.spinner.setSelection(exerciseType)
+
+            if(exerciseType == 0 ){
+                doAsync {
+                    val exercise : WeightLiftingEntity = weightLiftingDao.get(exerciseId)
+                        addLogViewModel.currentDate = exercise.date
+                        addLogViewModel.input1 = exercise.reps.toString()
+                        addLogViewModel.input2 = exercise.sets.toString()
+                        addLogViewModel.input3 = exercise.weight.toString()
+
+                }
+            }
+            if(exerciseType == 1 ){
+                doAsync {
+                    val exercise : RunningEntity = runningDao.get(exerciseId)
+                        addLogViewModel.currentDate = exercise.date
+                        addLogViewModel.input1 = exercise.distance.toString()
+                        addLogViewModel.input2 = exercise.speed.toString()
+                }
+
+            }
+            if(exerciseType == 2 ){
+
+            }
+
+
+        }catch(e : Exception) {
+            print(e)
+        }
+
 
         // Spinner
         val exerciseList = resources.getStringArray(R.array.exercisesList)

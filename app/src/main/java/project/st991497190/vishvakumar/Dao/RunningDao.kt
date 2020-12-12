@@ -18,4 +18,7 @@ interface RunningDao{
 
     @Query("UPDATE running SET DATE=:date, DISTANCE=:distance, SPEED=:speed WHERE id=:id")
     fun updateRunningEntity(date:String, distance:Float, speed:Float, id:Long )
+
+    @Query("SELECT * FROM running WHERE id=:logId")
+    fun get(logId: Long) : RunningEntity
 }

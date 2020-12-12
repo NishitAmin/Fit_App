@@ -12,4 +12,7 @@ interface SwimmingDao{
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert (exercise: SwimmingEntity)
 
+    @Query("SELECT * FROM swimming WHERE id=:logId")
+    fun get(logId: Long) : SwimmingEntity
+
 }
