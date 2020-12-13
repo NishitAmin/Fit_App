@@ -1,5 +1,5 @@
 package project.st991497190.vishvakumar.viewModels
-
+// Rohan Patel - 991496523
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -24,6 +24,25 @@ class WeightLiftingViewModel(val weightLiftingDao: WeightLiftingDao) : ViewModel
                 Log.d("INSERT", "insert: Inserted weightlifting exercise")
                 uiThread {
                     Toast.makeText(view.context, "Log inserted", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    fun update(view: View, id:Long, date:String, reps:String, sets:String, weight:String){
+        if(reps!!.isEmpty() || sets!!.isEmpty() || weight!!.isEmpty()){
+            Toast.makeText(view.context, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
+        }else {
+            val newExercise = WeightLiftingEntity(
+                id, date,
+                reps.toString().toInt(), sets.toString().toInt(),
+                weight.toString().toInt()
+            )
+            doAsync {
+                weightLiftingDao.update(newExercise)
+                Log.d("UPDATE", "update: Updated weightlifting exercise")
+                uiThread {
+                    Toast.makeText(view.context, "Log Updated", Toast.LENGTH_SHORT).show()
                 }
             }
         }

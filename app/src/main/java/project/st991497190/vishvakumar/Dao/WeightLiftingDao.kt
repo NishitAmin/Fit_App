@@ -15,4 +15,10 @@ interface WeightLiftingDao{
     @Query("DELETE FROM weightlifting WHERE id=:logId")
     fun delete(logId : Long)
 
+    @Query("SELECT * FROM weightlifting WHERE id=:logId")
+    fun get(logId: Long) : WeightLiftingEntity
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    fun update(exercise: WeightLiftingEntity)
+
 }

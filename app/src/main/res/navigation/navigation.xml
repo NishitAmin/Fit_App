@@ -54,7 +54,11 @@
     <fragment
         android:id="@+id/viewLogsFragment"
         android:name="project.st991497190.vishvakumar.Fragments.ViewLogsFragment"
-        android:label="View Logs" />
+        android:label="View Logs" >
+        <action
+            android:id="@+id/action_viewLogsFragment_to_addLogFragment"
+            app:destination="@id/addLogFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signUpFragment"
         android:name="project.st991497190.vishvakumar.Fragments.SignUpFragment"
