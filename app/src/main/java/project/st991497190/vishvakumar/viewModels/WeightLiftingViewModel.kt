@@ -29,6 +29,25 @@ class WeightLiftingViewModel(val weightLiftingDao: WeightLiftingDao) : ViewModel
         }
     }
 
+    fun update(view: View, id:Long, date:String, reps:String, sets:String, weight:String){
+        if(reps!!.isEmpty() || sets!!.isEmpty() || weight!!.isEmpty()){
+            Toast.makeText(view.context, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
+        }else {
+            val newExercise = WeightLiftingEntity(
+                id, date,
+                reps.toString().toInt(), sets.toString().toInt(),
+                weight.toString().toInt()
+            )
+            doAsync {
+                weightLiftingDao.update(newExercise)
+                Log.d("UPDATE", "update: Updated weightlifting exercise")
+                uiThread {
+                    Toast.makeText(view.context, "Log Updated", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
     fun select(){
         doAsync {
             val logs = weightLiftingDao.getAll()

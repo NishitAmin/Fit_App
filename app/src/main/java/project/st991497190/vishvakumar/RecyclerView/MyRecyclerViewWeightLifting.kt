@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.findNavController
@@ -27,7 +28,7 @@ class MyRecyclerViewWeightLifting(private var sampleList:List<WeightLiftingEntit
         val textView1: TextView = itemView.tView1
         val textView2 : TextView = itemView.tView2
         val textView3 : TextView = itemView.tView3
-        val btnDeleteLog : Button = itemView.btnDeleteLog
+        val btnDeleteLog : ImageView = itemView.btnDeleteLog
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

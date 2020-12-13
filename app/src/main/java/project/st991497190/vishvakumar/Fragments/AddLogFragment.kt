@@ -2,7 +2,9 @@ package project.st991497190.vishvakumar.Fragments
 // Rohan Patel - 991496523
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.os.Build
 import android.os.Bundle
+import android.provider.CalendarContract
 import android.text.format.DateFormat
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -27,6 +30,9 @@ import project.st991497190.vishvakumar.Entity.RunningEntity
 import project.st991497190.vishvakumar.Entity.WeightLiftingEntity
 import java.lang.Exception
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 import java.util.*
 import java.util.concurrent.Future
 
@@ -36,12 +42,13 @@ class AddLogFragment : Fragment() {
     var c: Calendar = Calendar.getInstance()
     var exerciseType = -1
     var exerciseId = -1L
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
+        Log.d("FRAG", "FRAGMENT INITIATED")
 
         val mainView: FragmentLogExerciseBinding = DataBindingUtil.inflate(
             inflater,
@@ -74,12 +81,16 @@ class AddLogFragment : Fragment() {
             exerciseType = requireArguments().getInt("exerciseType")
             exerciseId = requireArguments().getLong("exerciseId")
             mainView.btnAdd.text = "UPDATE"
-            mainView.spinner.setSelection(exerciseType)
+            Log.d("EXERCISE_TYPE", "EXERCISE TYPE IS "+exerciseType)
+
+            addLogViewModel.selectedSpinnerIndex = exerciseType
 
             if(exerciseType == 0 ){
                 doAsync {
                     val exercise : WeightLiftingEntity = weightLiftingDao.get(exerciseId)
-                        addLogViewModel.currentDate = exercise.date
+                        addLogViewModel.exerciseId = exerciseId
+                    addLogViewModel.insertMode = false
+                        addLogViewModel.currentDate = exercise.date+"\t(Edit)"
                         addLogViewModel.input1 = exercise.reps.toString()
                         addLogViewModel.input2 = exercise.sets.toString()
                         addLogViewModel.input3 = exercise.weight.toString()
@@ -89,9 +100,14 @@ class AddLogFragment : Fragment() {
             if(exerciseType == 1 ){
                 doAsync {
                     val exercise : RunningEntity = runningDao.get(exerciseId)
-                        addLogViewModel.currentDate = exercise.date
+                    addLogViewModel.exerciseId = exerciseId
+                    addLogViewModel.insertMode = false
+                        addLogViewModel.currentDate = exercise.date+"\t(Edit)"
                         addLogViewModel.input1 = exercise.distance.toString()
                         addLogViewModel.input2 = exercise.speed.toString()
+                    uiThread {
+                        mainView.input3.visibility = View.GONE
+                    }
                 }
 
             }
@@ -105,6 +121,22 @@ class AddLogFragment : Fragment() {
         }
 
 
+        if(exerciseType==-1){
+            val current = DateFormat.format("MMMM",c) as String
+            val day = c.get(Calendar.DAY_OF_MONTH)
+            val year = c.get(Calendar.YEAR)
+            val hour = c.get(Calendar.HOUR)
+            val min = c.get(Calendar.MINUTE)
+
+            val time = hour.toString() + ":" +min
+
+            val date12Format = SimpleDateFormat("hh:mm a")
+
+            val date24Format = SimpleDateFormat("HH:mm")
+            addLogViewModel.currentDate =
+                current+" "+day+", "+year+"  "+date12Format.format(date24Format.parse(time))+"" +
+                        "\t(Edit)"
+        }
         // Spinner
         val exerciseList = resources.getStringArray(R.array.exercisesList)
         val adapter = ArrayAdapter(
@@ -125,16 +157,20 @@ class AddLogFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                Log.d("POSITION", "" + position)
-                addLogViewModel.selectedSpinnerIndex = position
-                if (position == 0) {
-                    weightLiftingIsSelected()
-                }
-                if (position == 1) {
-                    runningIsSelected()
-                }
-                if (position == 2) {
-                    swimmingIsSelected()
+                if(exerciseType==-1) {
+                    Log.d("POSITION", "" + position)
+                    addLogViewModel.selectedSpinnerIndex = position
+                    if (position == 0) {
+                        weightLiftingIsSelected()
+                    }
+                    if (position == 1) {
+                        runningIsSelected()
+                    }
+                    if (position == 2) {
+                        swimmingIsSelected()
+                    }
+                }else{
+                    mainView.spinner.setSelection(exerciseType)
                 }
             }
 
@@ -170,7 +206,7 @@ class AddLogFragment : Fragment() {
 
 
                             dateField.text = nameMonth + " " + dayOfMonth + ", " + year + "    " +
-                                    date12Format.format(date24Format.parse(time))
+                                    date12Format.format(date24Format.parse(time))+"\t(Edit)"
 
                         }, hour, minute,
                         DateFormat.is24HourFormat(requireContext())
@@ -214,6 +250,10 @@ class AddLogFragment : Fragment() {
         input1.visibility = View.VISIBLE
         input2.visibility = View.VISIBLE
         input3.visibility = View.VISIBLE
+    }
+
+    fun OnUpdate(){
+
     }
 
 }

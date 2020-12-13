@@ -18,4 +18,7 @@ interface WeightLiftingDao{
     @Query("SELECT * FROM weightlifting WHERE id=:logId")
     fun get(logId: Long) : WeightLiftingEntity
 
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    fun update(exercise: WeightLiftingEntity)
+
 }

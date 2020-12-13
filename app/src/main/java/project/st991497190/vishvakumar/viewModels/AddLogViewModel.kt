@@ -1,6 +1,7 @@
 package project.st991497190.vishvakumar.viewModels
 // Rohan Patel - 991496523
 import android.app.Application
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModel
 import project.st991497190.vishvakumar.Dao.RunningDao
@@ -12,8 +13,9 @@ class AddLogViewModel(val weightLiftingDao: WeightLiftingDao, val runningDao: Ru
     var runningViewModel = RunningViewModel(runningDao)
     var swimmingViewModel = SwimmingViewModel()
     var selectedSpinnerIndex = 0
+    var insertMode = true
+    var exerciseId  = -1L
     var _currentDate : String? = ""
-
 
 
     var currentDate: String?
@@ -51,16 +53,42 @@ class AddLogViewModel(val weightLiftingDao: WeightLiftingDao, val runningDao: Ru
         set(value) {
             _input3 = value
         }
+
     fun onAddButtonClick(view : View){
-        print("Add Button Clicked")
-        if (selectedSpinnerIndex == 0){
+        // Insert
+        if(insertMode) {
+            print("Add Button Clicked")
+            if (selectedSpinnerIndex == 0) {
 
-            weightLiftingViewModel.insert(view,currentDate!!,input1!!, input2!!, input3!!);
+                weightLiftingViewModel.insert(view, currentDate!!, input1!!, input2!!, input3!!);
+            }
+            if (selectedSpinnerIndex == 1) {
+
+                runningViewModel.insert(view, currentDate!!, input1!!, input2!!)
+
+            }
         }
-        if(selectedSpinnerIndex == 1){
+        //Update
+        else{
+            Log.d("UPDATE", "onAddButtonClick: index is "+selectedSpinnerIndex)
+            if(exerciseId!=-1L) {
+                if (selectedSpinnerIndex == 0) {
 
-            runningViewModel.insert(view,currentDate!!,input1!!,input2!!)
+                    weightLiftingViewModel.update(
+                        view,
+                        exerciseId,
+                        currentDate!!,
+                        input1!!,
+                        input2!!,
+                        input3!!
+                    );
+                }
+                if (selectedSpinnerIndex == 1) {
 
+                    runningViewModel.update(view,exerciseId, currentDate!!, input1!!, input2!!)
+
+                }
+            }
         }
     }
 

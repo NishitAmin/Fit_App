@@ -1,16 +1,19 @@
 package project.st991497190.vishvakumar.RecyclerView
 // Rohan Patel - 991496523
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.list_view.view.*
+import project.st991497190.vishvakumar.Database.FitDatabase
 import project.st991497190.vishvakumar.Entity.RunningEntity
 import project.st991497190.vishvakumar.R
 
@@ -20,7 +23,7 @@ class MyRecyclerViewRunning(private var sampleList:List<RunningEntity>): Recycle
         val textView1: TextView = itemView.tView1
         val textView2 : TextView = itemView.tView2
         val textView3 : TextView = itemView.tView3
-        val btnDeleteLog : Button = itemView.btnDeleteLog
+        val btnDeleteLog : ImageView = itemView.btnDeleteLog
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolderRunning {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.list_view,parent,false);
@@ -44,6 +47,43 @@ class MyRecyclerViewRunning(private var sampleList:List<RunningEntity>): Recycle
         holder.textView1.text = ""+currentItem.distance+" KM"
         holder.textView2.text = ""+currentItem.speed+" Kmph"
         holder.textView3.visibility = View.GONE
+        holder.btnDeleteLog.setOnClickListener { v ->
+            val builder = AlertDialog.Builder(v.context)
+            builder.setTitle("Delete Conformation")
+            builder.setMessage("Are you sure you want to delete the log ?")
+
+            builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+                Toast.makeText(
+                    v.context,
+                    android.R.string.yes, Toast.LENGTH_SHORT
+                ).show()
+            }
+
+            builder.setNegativeButton(android.R.string.no) { dialog, which ->
+                Toast.makeText(
+                    v.context,
+                    android.R.string.no, Toast.LENGTH_SHORT
+                ).show()
+            }
+
+            builder.setPositiveButton("Yes") { _, _ ->
+                Toast.makeText(
+                    v.context,
+                    "Deleting log", Toast.LENGTH_SHORT
+                ).show()
+                FitDatabase.getInstance(v.context).runningDao().delete(currentItem.id)
+            }
+
+            builder.setNegativeButton("No") { _, _ ->
+
+                Toast.makeText(
+                    v.context,
+                    "Not deleting log", Toast.LENGTH_SHORT
+                ).show()
+            }
+
+            builder.show()
+        }
     }
 
     override fun getItemCount() = sampleList.size

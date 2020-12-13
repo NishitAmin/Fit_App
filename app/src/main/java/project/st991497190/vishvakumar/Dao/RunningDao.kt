@@ -11,7 +11,7 @@ interface RunningDao{
     fun getAll() : List<RunningEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert (student: RunningEntity)
+    fun insert (exercise: RunningEntity)
 
     @Query("DELETE FROM running")
     fun deleteAll()
@@ -21,4 +21,10 @@ interface RunningDao{
 
     @Query("SELECT * FROM running WHERE id=:logId")
     fun get(logId: Long) : RunningEntity
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    fun update (exercise: RunningEntity)
+
+    @Query("DELETE FROM running WHERE id=:logId")
+    fun delete(logId : Long)
 }
