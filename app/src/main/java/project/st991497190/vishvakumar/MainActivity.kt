@@ -2,10 +2,12 @@ package project.st991497190.vishvakumar
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.google.android.material.navigation.NavigationView
 import project.st991497190.vishvakumar.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,8 +18,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         @Suppress("UNUSED_VARIABLE")
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this,
-            R.layout.activity_main
-        )
+            R.layout.activity_main)
+
         drawerLayout = binding.drawerLayout
         val navController = this.findNavController(R.id.NavHostFragment)
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)

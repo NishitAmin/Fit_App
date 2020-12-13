@@ -8,4 +8,7 @@
         <item>Running</item>
         <item>Swimming</item>
     </string-array>
+    <string name="signup">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
 </resources>
