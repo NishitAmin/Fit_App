@@ -16,14 +16,14 @@
 
         <TextView
             android:id="@+id/logDate"
-            android:layout_width="299dp"
-            android:layout_height="35dp"
+            android:layout_width="342dp"
+            android:layout_height="32dp"
             android:layout_marginTop="16dp"
             android:text="November 18, 2020 9:00AM"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.303"
+            app:layout_constraintHorizontal_bias="0.231"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
