@@ -27,6 +27,7 @@ import project.st991497190.vishvakumar.viewModelsFactory.AddLogViewModelFactory
 
 import project.st991497190.vishvakumar.Database.FitDatabase
 import project.st991497190.vishvakumar.Entity.RunningEntity
+import project.st991497190.vishvakumar.Entity.SwimmingEntity
 import project.st991497190.vishvakumar.Entity.WeightLiftingEntity
 import java.lang.Exception
 import java.text.SimpleDateFormat
@@ -90,7 +91,7 @@ class AddLogFragment : Fragment() {
                     val exercise : WeightLiftingEntity = weightLiftingDao.get(exerciseId)
                         addLogViewModel.exerciseId = exerciseId
                     addLogViewModel.insertMode = false
-                        addLogViewModel.currentDate = exercise.date+"\t(Edit)"
+                        addLogViewModel.currentDate = exercise.date
                         addLogViewModel.input1 = exercise.reps.toString()
                         addLogViewModel.input2 = exercise.sets.toString()
                         addLogViewModel.input3 = exercise.weight.toString()
@@ -102,7 +103,7 @@ class AddLogFragment : Fragment() {
                     val exercise : RunningEntity = runningDao.get(exerciseId)
                     addLogViewModel.exerciseId = exerciseId
                     addLogViewModel.insertMode = false
-                        addLogViewModel.currentDate = exercise.date+"\t(Edit)"
+                        addLogViewModel.currentDate = exercise.date
                         addLogViewModel.input1 = exercise.distance.toString()
                         addLogViewModel.input2 = exercise.speed.toString()
                     uiThread {
@@ -112,7 +113,16 @@ class AddLogFragment : Fragment() {
 
             }
             if(exerciseType == 2 ){
+                doAsync {
+                    val exercise : SwimmingEntity = swimmingDao.get(exerciseId)
+                    addLogViewModel.exerciseId = exerciseId
+                    addLogViewModel.insertMode = false
+                    addLogViewModel.currentDate = exercise.date
+                    addLogViewModel.input1 = exercise.speed.toString()
+                    addLogViewModel.input2 = exercise.kicks.toString()
+                    addLogViewModel.input3 = exercise.time.toString()
 
+                }
             }
 
 
@@ -134,8 +144,7 @@ class AddLogFragment : Fragment() {
 
             val date24Format = SimpleDateFormat("HH:mm")
             addLogViewModel.currentDate =
-                current+" "+day+", "+year+"  "+date12Format.format(date24Format.parse(time))+"" +
-                        "\t(Edit)"
+                current+" "+day+", "+year+"  "+date12Format.format(date24Format.parse(time))
         }
         // Spinner
         val exerciseList = resources.getStringArray(R.array.exercisesList)
@@ -206,7 +215,7 @@ class AddLogFragment : Fragment() {
 
 
                             dateField.text = nameMonth + " " + dayOfMonth + ", " + year + "    " +
-                                    date12Format.format(date24Format.parse(time))+"\t(Edit)"
+                                    date12Format.format(date24Format.parse(time))
 
                         }, hour, minute,
                         DateFormat.is24HourFormat(requireContext())
@@ -227,23 +236,31 @@ class AddLogFragment : Fragment() {
     fun weightLiftingIsSelected() {
         makeAllVisible()
         input1.setHint("Reps")
+        input1.setText("")
         input2.setHint("Sets")
+        input2.setText("")
         input3.setHint("Weight")
+        input3.setText("")
 
     }
 
     fun runningIsSelected() {
         makeAllVisible()
         input1.setHint("Distance")
+        input1.setText("")
         input2.setHint("Speed")
+        input2.setText("")
         input3.visibility = View.GONE
     }
 
     fun swimmingIsSelected() {
         makeAllVisible()
         input1.setHint("Speed")
+        input1.setText("")
         input2.setHint("Kicks")
+        input2.setText("")
         input3.setHint("Time")
+        input3.setText("")
     }
 
     fun makeAllVisible() {

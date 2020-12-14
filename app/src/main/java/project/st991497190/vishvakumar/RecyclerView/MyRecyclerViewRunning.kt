@@ -17,7 +17,7 @@ import project.st991497190.vishvakumar.Database.FitDatabase
 import project.st991497190.vishvakumar.Entity.RunningEntity
 import project.st991497190.vishvakumar.R
 
-class MyRecyclerViewRunning(private var sampleList:List<RunningEntity>): RecyclerView.Adapter<MyRecyclerViewRunning.MyViewHolderRunning>() {
+class MyRecyclerViewRunning(private var sampleList:MutableList<RunningEntity>): RecyclerView.Adapter<MyRecyclerViewRunning.MyViewHolderRunning>() {
     class MyViewHolderRunning(itemView: View): RecyclerView.ViewHolder(itemView){
         val date: TextView = itemView.logDate
         val textView1: TextView = itemView.tView1
@@ -72,6 +72,8 @@ class MyRecyclerViewRunning(private var sampleList:List<RunningEntity>): Recycle
                     "Deleting log", Toast.LENGTH_SHORT
                 ).show()
                 FitDatabase.getInstance(v.context).runningDao().delete(currentItem.id)
+                sampleList.removeAt(position)
+                notifyDataSetChanged()
             }
 
             builder.setNegativeButton("No") { _, _ ->
