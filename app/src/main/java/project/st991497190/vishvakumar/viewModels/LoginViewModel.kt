@@ -9,9 +9,9 @@ import org.jetbrains.anko.uiThread
 import project.st991497190.vishvakumar.Dao.LoginDao
 import project.st991497190.vishvakumar.Entity.LoginEntity
 
-class LoginViewModel(val loginDao: LoginDao) : ViewModel() {
+class LoginViewModel(val loginDao: LoginDao, application: Application) : ViewModel() {
 
-    var loginViewModel = LoginViewModel(loginDao)
+    var loginViewModel = LoginViewModel(loginDao, application)
 
     var _name: String? = ""
     var _email: String? = ""

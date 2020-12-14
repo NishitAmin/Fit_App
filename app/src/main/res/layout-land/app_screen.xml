@@ -25,7 +25,7 @@
 
         <Button
             android:id="@+id/buttonViewLogs"
-            android:layout_width="300sp"
+            android:layout_width="200sp"
             android:layout_height="45sp"
             android:layout_marginTop="16dp"
             android:background="@drawable/custom_button_white"
@@ -40,7 +40,7 @@
 
         <Button
             android:id="@+id/buttonCalculateBMI"
-            android:layout_width="300sp"
+            android:layout_width="200sp"
             android:layout_height="45sp"
             android:layout_marginTop="16dp"
             android:background="@drawable/custom_button_white"
@@ -54,7 +54,7 @@
 
         <Button
             android:id="@+id/buttonAddLog"
-            android:layout_width="300sp"
+            android:layout_width="200sp"
             android:layout_height="45sp"
             android:layout_marginTop="24dp"
             android:background="@drawable/custom_button_white"
