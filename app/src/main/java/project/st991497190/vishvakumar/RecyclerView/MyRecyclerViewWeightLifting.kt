@@ -22,7 +22,7 @@ import project.st991497190.vishvakumar.Database.FitDatabase
 import project.st991497190.vishvakumar.Fragments.AddLogFragment
 import project.st991497190.vishvakumar.R
 
-class MyRecyclerViewWeightLifting(private var sampleList:List<WeightLiftingEntity>): RecyclerView.Adapter<MyRecyclerViewWeightLifting.MyViewHolder>() {
+class MyRecyclerViewWeightLifting(public var sampleList:MutableList<WeightLiftingEntity>): RecyclerView.Adapter<MyRecyclerViewWeightLifting.MyViewHolder>() {
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val date: TextView = itemView.logDate
         val textView1: TextView = itemView.tView1
@@ -74,6 +74,9 @@ class MyRecyclerViewWeightLifting(private var sampleList:List<WeightLiftingEntit
                 Toast.makeText(v.context,
                     "Deleting log", Toast.LENGTH_SHORT).show()
                 FitDatabase.getInstance(v.context).weightLiftingDao().delete(currentItem.id)
+                sampleList.removeAt(position)
+                notifyDataSetChanged()
+
             }
 
             builder.setNegativeButton("No") {_,_->

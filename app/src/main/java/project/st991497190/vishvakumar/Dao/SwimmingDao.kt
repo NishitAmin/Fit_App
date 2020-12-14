@@ -3,10 +3,11 @@ package project.st991497190.vishvakumar.Dao
 
 import androidx.room.*
 import project.st991497190.vishvakumar.Entity.SwimmingEntity
+import project.st991497190.vishvakumar.Entity.WeightLiftingEntity
 
 @Dao
 interface SwimmingDao{
-    @Query("SELECT * FROM weightlifting")
+    @Query("SELECT * FROM swimming")
     fun getAll() : List<SwimmingEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -14,5 +15,12 @@ interface SwimmingDao{
 
     @Query("SELECT * FROM swimming WHERE id=:logId")
     fun get(logId: Long) : SwimmingEntity
+
+    @Query("DELETE FROM swimming WHERE id=:logId")
+    fun delete(logId : Long)
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    fun update(exercise: SwimmingEntity)
+
 
 }

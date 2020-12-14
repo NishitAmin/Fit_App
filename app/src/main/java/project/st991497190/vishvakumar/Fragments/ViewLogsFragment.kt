@@ -43,7 +43,7 @@ class ViewLogsFragment : Fragment() {
         val exerciseList = resources.getStringArray(R.array.exercisesList)
         val adapter = ArrayAdapter(container!!.context,android.R.layout.simple_list_item_1,exerciseList)
         binding.spinner2.adapter = adapter
-        binding.recyclerView.adapter = MyRecyclerViewWeightLifting(weightLiftingList)
+        binding.recyclerView.adapter = MyRecyclerViewWeightLifting(weightLiftingList.toMutableList())
         getWeightLiftingData()
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
@@ -87,7 +87,7 @@ class ViewLogsFragment : Fragment() {
         doAsync {
             val list = database.weightLiftingDao().getAll()
             uiThread {
-                recyclerView.adapter = MyRecyclerViewWeightLifting(list)
+                recyclerView.adapter = MyRecyclerViewWeightLifting(list.toMutableList())
             }
         }
 
@@ -96,7 +96,7 @@ class ViewLogsFragment : Fragment() {
         doAsync {
             val list = database.runningDao().getAll()
             uiThread {
-                recyclerView.adapter = MyRecyclerViewRunning(list)
+                recyclerView.adapter = MyRecyclerViewRunning(list.toMutableList())
             }
         }
 
@@ -105,7 +105,7 @@ class ViewLogsFragment : Fragment() {
         doAsync {
             val list = database.swimmingDao().getAll()
             uiThread {
-                recyclerView.adapter = MyRecyclerViewSwimming(list)
+                recyclerView.adapter = MyRecyclerViewSwimming(list.toMutableList())
             }
         }
 
