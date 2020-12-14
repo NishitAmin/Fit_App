@@ -15,11 +15,9 @@ import kotlinx.android.synthetic.main.fragment_view_logs.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import project.st991497190.vishvakumar.Entity.WeightLiftingEntity
-//import org.rohan.patel.finalprojectandroid.R
 import project.st991497190.vishvakumar.RecyclerView.MyRecyclerViewRunning
 import project.st991497190.vishvakumar.RecyclerView.MyRecyclerViewSwimming
 import project.st991497190.vishvakumar.RecyclerView.MyRecyclerViewWeightLifting
-//import org.rohan.patel.finalprojectandroid.databinding.FragmentViewLogsBinding
 import project.st991497190.vishvakumar.viewModels.ViewLogsViewModel
 import project.st991497190.vishvakumar.viewModelsFactory.ViewLogViewModelFactory
 import project.st991497190.vishvakumar.Database.FitDatabase

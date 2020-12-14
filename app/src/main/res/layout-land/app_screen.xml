@@ -12,7 +12,7 @@
             android:id="@+id/textView6"
             android:layout_width="374dp"
             android:layout_height="72dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="24dp"
             android:text='"All Progress Takes Place Outside The Comfort Zone"'
             android:textAlignment="center"
             android:textColor="@android:color/black"
@@ -27,56 +27,43 @@
             android:id="@+id/buttonViewLogs"
             android:layout_width="300sp"
             android:layout_height="45sp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/custom_button_white"
             android:shadowColor="#100C0C"
             android:text="View Logs"
             android:textAlignment="center"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonCalculateBMI" />
 
         <Button
             android:id="@+id/buttonCalculateBMI"
             android:layout_width="300sp"
             android:layout_height="45sp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/custom_button_white"
             android:text="Calculate BMI"
             android:textAlignment="center"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonViewLogs" />
-
-        <Button
-            android:id="@+id/buttonViewAnalytics"
-            android:layout_width="300sp"
-            android:layout_height="45sp"
-            android:layout_marginTop="11dp"
-            android:background="@drawable/custom_button_white"
-            android:text="View Anaytics"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonCalculateBMI" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonAddLog" />
 
         <Button
             android:id="@+id/buttonAddLog"
             android:layout_width="300sp"
             android:layout_height="45sp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/custom_button_white"
             android:text="Add log"
             android:textAlignment="center"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonViewAnalytics" />
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

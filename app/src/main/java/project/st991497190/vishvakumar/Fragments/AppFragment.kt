@@ -23,10 +23,6 @@ class AppFragment: Fragment() {
             view?.findNavController()?.navigate(R.id.action_appFragment_to_bmiFragment)
         }
 
-        binding.buttonViewAnalytics.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_appFragment_to_analyticsFragment)
-        }
-
         binding.buttonAddLog.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_appFragment_to_addLogFragment)
         }

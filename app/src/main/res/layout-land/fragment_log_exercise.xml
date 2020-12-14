@@ -104,15 +104,26 @@
             android:id="@+id/dateField"
             android:layout_width="331dp"
             android:layout_height="36dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="12dp"
             android:ems="10"
             android:hint="Select exercise date"
             android:inputType="date"
             android:text="@={logViewModel.currentDate}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.45"
+            app:layout_constraintHorizontal_bias="0.09"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+        <ImageView
+            android:id="@+id/exerciseImage"
+            android:layout_width="87dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="560dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.22"
+            app:srcCompat="@drawable/weightlifting" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

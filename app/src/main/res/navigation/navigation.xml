@@ -38,9 +38,6 @@
             android:id="@+id/action_appFragment_to_bmiFragment"
             app:destination="@id/bmiFragment" />
         <action
-            android:id="@+id/action_appFragment_to_analyticsFragment"
-            app:destination="@id/analyticsFragment" />
-        <action
             android:id="@+id/action_appFragment_to_addLogFragment"
             app:destination="@id/addLogFragment" />
         <action
@@ -48,14 +45,6 @@
             app:destination="@id/viewLogsFragment" />
         <action
             android:id="@+id/action_appFragment_to_homeScreenFragment"
-            app:destination="@id/homeScreenFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/analyticsFragment"
-        android:name="project.st991497190.vishvakumar.Fragments.AnalyticsFragment"
-        android:label="Analytics Page" >
-        <action
-            android:id="@+id/action_analyticsFragment_to_homeScreenFragment"
             app:destination="@id/homeScreenFragment" />
     </fragment>
     <fragment

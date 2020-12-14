@@ -89,12 +89,14 @@ class AddLogFragment : Fragment() {
             if(exerciseType == 0 ){
                 doAsync {
                     val exercise : WeightLiftingEntity = weightLiftingDao.get(exerciseId)
-                        addLogViewModel.exerciseId = exerciseId
+                    addLogViewModel.exerciseId = exerciseId
                     addLogViewModel.insertMode = false
-                        addLogViewModel.currentDate = exercise.date
-                        addLogViewModel.input1 = exercise.reps.toString()
-                        addLogViewModel.input2 = exercise.sets.toString()
-                        addLogViewModel.input3 = exercise.weight.toString()
+                    addLogViewModel.currentDate = exercise.date
+                    addLogViewModel.input1 = exercise.reps.toString()
+                    addLogViewModel.input2 = exercise.sets.toString()
+                    addLogViewModel.input3 = exercise.weight.toString()
+
+                    exerciseImage.setImageResource(R.drawable.weightlifting)
 
                 }
             }
@@ -109,6 +111,7 @@ class AddLogFragment : Fragment() {
                     uiThread {
                         mainView.input3.visibility = View.GONE
                     }
+                    exerciseImage.setImageResource(R.drawable.running)
                 }
 
             }
@@ -122,6 +125,7 @@ class AddLogFragment : Fragment() {
                     addLogViewModel.input2 = exercise.kicks.toString()
                     addLogViewModel.input3 = exercise.time.toString()
 
+                    exerciseImage.setImageResource(R.drawable.swimming)
                 }
             }
 
