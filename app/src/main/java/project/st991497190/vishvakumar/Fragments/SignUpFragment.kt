@@ -35,7 +35,7 @@ class SignUpFragment: Fragment() {
             }else if (!Patterns.EMAIL_ADDRESS.matcher(editTextEmail.text.toString()).matches()){
                 Toast.makeText(activity, "Enter valid email address!", Toast.LENGTH_SHORT).show()
             }else if (loginDao.exists(binding.editTextEmail.text.trim().toString()) == true){
-                Toast.makeText(activity, "Email already exists!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Email is already registered!", Toast.LENGTH_SHORT).show()
             }else if (binding.editTextPassword.text.trim().isEmpty()) {
                 Toast.makeText(activity, "Enter the PASSWORD!!", Toast.LENGTH_SHORT).show()
             }else if (binding.checkBoxTerms.isChecked!=true) {
