@@ -1,10 +1,15 @@
 package project.st991497190.vishvakumar.viewModels
 
 import android.app.Application
+import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 import project.st991497190.vishvakumar.Dao.LoginDao
+import project.st991497190.vishvakumar.Entity.LoginEntity
 
-class LoginViewModel(loginDao: LoginDao, application: Application) : ViewModel() {
+class LoginViewModel(val loginDao: LoginDao, application: Application) : ViewModel() {
 
     var loginViewModel = LoginViewModel(loginDao, application)
 
