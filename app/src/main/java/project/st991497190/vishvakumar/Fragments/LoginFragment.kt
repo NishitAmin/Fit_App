@@ -2,12 +2,14 @@ package project.st991497190.vishvakumar.Fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.login_screen.*
 //import org.rohan.patel.finalprojectandroid.R
 //import org.rohan.patel.finalprojectandroid.databinding.LoginScreenBinding
@@ -28,6 +30,16 @@ class LoginFragment: Fragment() {
 
         val binding = DataBindingUtil.inflate<LoginScreenBinding>(inflater,
                 R.layout.login_screen,container,false)
+
+
+        val navigationView = requireActivity().findViewById<NavigationView>(R.id.navView)
+        val menu = navigationView.menu
+        val target: MenuItem = menu.findItem(R.id.signUpFragment)
+        target.setVisible(true)
+        val target2: MenuItem = menu.findItem(R.id.loginFragment)
+        target2.setVisible(true)
+        val target3: MenuItem = menu.findItem(R.id.homeScreenFragment)
+        target3.setVisible(false)
 
         val application = requireNotNull(this.activity).application
         val loginDao = FitDatabase.getInstance(application).loginDao()
