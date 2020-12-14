@@ -10,6 +10,9 @@ data class RunningEntity (
     @PrimaryKey(autoGenerate = true)
     var id : Long,
 
+    @ColumnInfo(name = "user_id")
+    var user_id:Long,
+
     @ColumnInfo(name  = "date")
     var date : String,
 

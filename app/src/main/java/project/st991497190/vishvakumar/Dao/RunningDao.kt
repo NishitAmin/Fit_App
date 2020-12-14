@@ -7,8 +7,8 @@ import androidx.room.*
 
 @Dao
 interface RunningDao{
-    @Query("SELECT * FROM running")
-    fun getAll() : List<RunningEntity>
+    @Query("SELECT * FROM running WHERE user_id=:userId")
+    fun getAll(userId:Long) : List<RunningEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert (exercise: RunningEntity)

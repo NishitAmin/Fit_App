@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import project.st991497190.vishvakumar.Entity.*
 import project.st991497190.vishvakumar.Dao.*
 
-@Database(entities = [BmiEntity::class, RunningEntity::class, WeightLiftingEntity::class, SwimmingEntity::class, LoginEntity::class],version = 2, exportSchema = false)
+@Database(entities = [BmiEntity::class, RunningEntity::class, WeightLiftingEntity::class, SwimmingEntity::class, LoginEntity::class],version = 4, exportSchema = false)
 abstract class FitDatabase : RoomDatabase(){
     abstract fun runningDao(): RunningDao
     abstract fun weightLiftingDao(): WeightLiftingDao

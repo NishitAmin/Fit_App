@@ -8,6 +8,7 @@ import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import project.st991497190.vishvakumar.Dao.WeightLiftingDao
 import project.st991497190.vishvakumar.Entity.WeightLiftingEntity
+import project.st991497190.vishvakumar.UserObject
 
 class WeightLiftingViewModel(val weightLiftingDao: WeightLiftingDao) : ViewModel() {
     fun insert(view: View, date:String, reps:String, sets:String, weight:String){
@@ -15,7 +16,7 @@ class WeightLiftingViewModel(val weightLiftingDao: WeightLiftingDao) : ViewModel
             Toast.makeText(view.context, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
         }else {
             val newExercise = WeightLiftingEntity(
-                0, date,
+                0, UserObject.user.id,date,
                 reps.toString().toInt(), sets.toString().toInt(),
                 weight.toString().toInt()
             )
@@ -34,7 +35,7 @@ class WeightLiftingViewModel(val weightLiftingDao: WeightLiftingDao) : ViewModel
             Toast.makeText(view.context, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
         }else {
             val newExercise = WeightLiftingEntity(
-                id, date,
+                id, UserObject.user.id,date,
                 reps.toString().toInt(), sets.toString().toInt(),
                 weight.toString().toInt()
             )
@@ -50,7 +51,7 @@ class WeightLiftingViewModel(val weightLiftingDao: WeightLiftingDao) : ViewModel
 
     fun select(){
         doAsync {
-            val logs = weightLiftingDao.getAll()
+            val logs = weightLiftingDao.getAll(UserObject.user.id)
             Log.d("SIZE", "SIZE IS "+logs.size)
 
         }

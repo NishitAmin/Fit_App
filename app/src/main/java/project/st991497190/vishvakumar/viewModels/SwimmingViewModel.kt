@@ -9,6 +9,7 @@ import org.jetbrains.anko.uiThread
 import project.st991497190.vishvakumar.Dao.SwimmingDao
 import project.st991497190.vishvakumar.Entity.RunningEntity
 import project.st991497190.vishvakumar.Entity.SwimmingEntity
+import project.st991497190.vishvakumar.UserObject
 
 class SwimmingViewModel(val swimmingDao: SwimmingDao) : ViewModel() {
 
@@ -18,7 +19,7 @@ class SwimmingViewModel(val swimmingDao: SwimmingDao) : ViewModel() {
             Toast.makeText(view.context, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
         }else{
             doAsync {
-                val newExercise = SwimmingEntity(0,date,speed.toFloat(),kicks.toInt(),time.toFloat())
+                val newExercise = SwimmingEntity(0,UserObject.user.id,date,speed.toFloat(),kicks.toInt(),time.toFloat())
                 Log.d("INSERT", ""+newExercise)
                 swimmingDao.insert(newExercise)
                 uiThread {
@@ -34,7 +35,7 @@ class SwimmingViewModel(val swimmingDao: SwimmingDao) : ViewModel() {
             Toast.makeText(view.context, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
         }else {
             val newExercise = SwimmingEntity(
-                id, date,
+                id,UserObject.user.id, date,
                 speed.toFloat(), kicks.toInt(),time.toFloat()
             )
             doAsync {

@@ -96,7 +96,6 @@ class AddLogFragment : Fragment() {
                     addLogViewModel.input2 = exercise.sets.toString()
                     addLogViewModel.input3 = exercise.weight.toString()
 
-                    exerciseImage.setImageResource(R.drawable.weightlifting)
 
                 }
             }
@@ -111,7 +110,7 @@ class AddLogFragment : Fragment() {
                     uiThread {
                         mainView.input3.visibility = View.GONE
                     }
-                    exerciseImage.setImageResource(R.drawable.running)
+
                 }
 
             }
@@ -125,7 +124,7 @@ class AddLogFragment : Fragment() {
                     addLogViewModel.input2 = exercise.kicks.toString()
                     addLogViewModel.input3 = exercise.time.toString()
 
-                    exerciseImage.setImageResource(R.drawable.swimming)
+
                 }
             }
 
@@ -175,12 +174,15 @@ class AddLogFragment : Fragment() {
                     addLogViewModel.selectedSpinnerIndex = position
                     if (position == 0) {
                         weightLiftingIsSelected()
+                        //mainView.exerciseImage.setImageResource(R.drawable.weightlifting)
                     }
                     if (position == 1) {
                         runningIsSelected()
+                        //mainView.exerciseImage.setImageResource(R.drawable.running)
                     }
                     if (position == 2) {
                         swimmingIsSelected()
+                        //mainView.exerciseImage.setImageResource(R.drawable.swimming)
                     }
                 }else{
                     mainView.spinner.setSelection(exerciseType)

@@ -9,6 +9,7 @@ import org.jetbrains.anko.uiThread
 import project.st991497190.vishvakumar.Dao.RunningDao
 import project.st991497190.vishvakumar.Entity.RunningEntity
 import project.st991497190.vishvakumar.Entity.WeightLiftingEntity
+import project.st991497190.vishvakumar.UserObject
 
 class RunningViewModel(val runningDao: RunningDao) : ViewModel() {
     fun insert(view: View, date:String, distance:String, speed:String){
@@ -16,7 +17,7 @@ class RunningViewModel(val runningDao: RunningDao) : ViewModel() {
             Toast.makeText(view.context, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
         }else{
             doAsync {
-                val newExercise = RunningEntity(0,date,distance.toFloat(),speed.toFloat())
+                val newExercise = RunningEntity(0,UserObject.user.id,date,distance.toFloat(),speed.toFloat())
                 runningDao.insert(newExercise)
                 uiThread {
                     Toast.makeText(view.context, "Log inserted", Toast.LENGTH_SHORT).show()
@@ -30,7 +31,7 @@ class RunningViewModel(val runningDao: RunningDao) : ViewModel() {
             Toast.makeText(view.context, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
         }else {
             val newExercise = RunningEntity(
-                id, date,
+                id,UserObject.user.id, date,
                 distance.toFloat(), speed.toFloat()
             )
             doAsync {
@@ -45,7 +46,7 @@ class RunningViewModel(val runningDao: RunningDao) : ViewModel() {
 
     fun select(){
         doAsync {
-            val logs = runningDao.getAll()
+            val logs = runningDao.getAll(UserObject.user.id)
             Log.d("SIZE", "select: Size of running logs is "+ logs.size)
         }
     }

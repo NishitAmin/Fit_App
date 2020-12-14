@@ -13,7 +13,7 @@ interface LoginDao {
     fun userRegistration (login: LoginEntity)
 
     @Query("SELECT * FROM login WHERE email=:email AND password=:password")
-    fun checkUser (email: String, password: String) : Boolean
+    fun checkUser (email: String, password: String) : LoginEntity
 
     @Query("SELECT EXISTS (SELECT * FROM login WHERE email=:email)")
     fun exists(email: String): Boolean

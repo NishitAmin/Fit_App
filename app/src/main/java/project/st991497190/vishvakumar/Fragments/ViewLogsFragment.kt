@@ -22,6 +22,7 @@ import project.st991497190.vishvakumar.viewModels.ViewLogsViewModel
 import project.st991497190.vishvakumar.viewModelsFactory.ViewLogViewModelFactory
 import project.st991497190.vishvakumar.Database.FitDatabase
 import project.st991497190.vishvakumar.R
+import project.st991497190.vishvakumar.UserObject
 import project.st991497190.vishvakumar.databinding.FragmentViewLogsBinding
 
 class ViewLogsFragment : Fragment() {
@@ -83,7 +84,7 @@ class ViewLogsFragment : Fragment() {
 
     private fun getWeightLiftingData(){
         doAsync {
-            val list = database.weightLiftingDao().getAll()
+            val list = database.weightLiftingDao().getAll(UserObject.user.id)
             uiThread {
                 recyclerView.adapter = MyRecyclerViewWeightLifting(list.toMutableList())
             }
@@ -92,7 +93,7 @@ class ViewLogsFragment : Fragment() {
     }
     private fun getRunningData(){
         doAsync {
-            val list = database.runningDao().getAll()
+            val list = database.runningDao().getAll(UserObject.user.id)
             uiThread {
                 recyclerView.adapter = MyRecyclerViewRunning(list.toMutableList())
             }
@@ -101,7 +102,7 @@ class ViewLogsFragment : Fragment() {
     }
     private fun getSwimmingData(){
         doAsync {
-            val list = database.swimmingDao().getAll()
+            val list = database.swimmingDao().getAll(UserObject.user.id)
             uiThread {
                 recyclerView.adapter = MyRecyclerViewSwimming(list.toMutableList())
             }

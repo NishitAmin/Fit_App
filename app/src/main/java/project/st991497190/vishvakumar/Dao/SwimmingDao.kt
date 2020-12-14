@@ -7,8 +7,8 @@ import project.st991497190.vishvakumar.Entity.WeightLiftingEntity
 
 @Dao
 interface SwimmingDao{
-    @Query("SELECT * FROM swimming")
-    fun getAll() : List<SwimmingEntity>
+    @Query("SELECT * FROM swimming WHERE user_id=:userId")
+    fun getAll(userId:Long) : List<SwimmingEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert (exercise: SwimmingEntity)

@@ -12,10 +12,17 @@ import kotlinx.android.synthetic.main.login_screen.*
 //import org.rohan.patel.finalprojectandroid.R
 //import org.rohan.patel.finalprojectandroid.databinding.LoginScreenBinding
 import project.st991497190.vishvakumar.Database.FitDatabase
+import project.st991497190.vishvakumar.Entity.LoginEntity
 import project.st991497190.vishvakumar.R
+import project.st991497190.vishvakumar.UserObject
 import project.st991497190.vishvakumar.databinding.LoginScreenBinding
 
 class LoginFragment: Fragment() {
+
+    companion object{
+        private lateinit var user : LoginEntity
+
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
@@ -32,7 +39,8 @@ class LoginFragment: Fragment() {
                 Toast.makeText(activity, "Enter your PASSWORD!", Toast.LENGTH_SHORT).show()
             }else{
                 val user = loginDao.checkUser(editTextEmail.text.toString(), editTextPassword.text.toString())
-                if(user==false){
+                UserObject.user = user
+                if(user==null){
                     Toast.makeText(activity, "Invalid Credentials", Toast.LENGTH_SHORT).show()
                 }else{
                     view?.findNavController()?.navigate(R.id.action_loginFragment_to_appFragment)
