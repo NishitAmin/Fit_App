@@ -51,6 +51,10 @@ class AppFragment : Fragment() {
             view?.findNavController()?.navigate(R.id.action_appFragment_to_viewLogsFragment)
         }
 
+        binding.buttonArticle?.setOnClickListener {
+            view?.findNavController()?.navigate(R.id.action_appFragment_to_articleFragment)
+        }
+
         setHasOptionsMenu(true)
 
         return binding.root
