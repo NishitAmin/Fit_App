@@ -8,6 +8,7 @@ import android.provider.CalendarContract
 import android.text.format.DateFormat
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
@@ -16,6 +17,7 @@ import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.fragment_log_exercise.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.doAsyncResult
@@ -58,6 +60,22 @@ class AddLogFragment : Fragment() {
             false
         )
 
+        val navigationView = requireActivity().findViewById<NavigationView>(R.id.navView)
+        val menu = navigationView.menu
+        val target: MenuItem = menu.findItem(R.id.signUpFragment)
+        target.setVisible(false)
+        val target2: MenuItem = menu.findItem(R.id.loginFragment)
+        target2.setVisible(false)
+        val target3: MenuItem = menu.findItem(R.id.homeScreenFragment)
+        target3.setVisible(true)
+        val target4: MenuItem = menu.findItem(R.id.bmiFragment)
+        target4.setVisible(true)
+        val target5: MenuItem = menu.findItem(R.id.addLogFragment)
+        target5.setVisible(true)
+        val target6: MenuItem = menu.findItem(R.id.viewLogsFragment)
+        target6.setVisible(true)
+        val target7: MenuItem = menu.findItem(R.id.articleFragment)
+        target7.setVisible(true)
 
         // Adding View Model
         val application = requireNotNull(this.activity).application
