@@ -25,20 +25,15 @@
     <fragment
         android:id="@+id/bmiFragment"
         android:name="project.st991497190.vishvakumar.Fragments.BmiFragment"
-        android:label="Body Mass Index" >
-        <action
-            android:id="@+id/action_bmiFragment_to_appFragment"
-            app:destination="@id/appFragment"
-            app:popUpTo="@id/appFragment"
-            app:popUpToInclusive="false" />
-    </fragment>
+        android:label="Body Mass Index" />
     <fragment
         android:id="@+id/appFragment"
         android:name="project.st991497190.vishvakumar.Fragments.AppFragment"
         android:label="Home Page">
         <action
             android:id="@+id/action_appFragment_to_bmiFragment"
-            app:destination="@id/bmiFragment" />
+            app:destination="@id/bmiFragment"
+            app:popUpTo="@id/appFragment" />
         <action
             android:id="@+id/action_appFragment_to_addLogFragment"
             app:destination="@id/addLogFragment" />
@@ -56,12 +51,7 @@
     <fragment
         android:id="@+id/addLogFragment"
         android:name="project.st991497190.vishvakumar.Fragments.AddLogFragment"
-        android:label="Add Your Log" >
-        <action
-            android:id="@+id/action_addLogFragment_to_appFragment"
-            app:destination="@id/appFragment"
-            app:popUpTo="@id/appFragment" />
-    </fragment>
+        android:label="Add Your Log" />
     <fragment
         android:id="@+id/viewLogsFragment"
         android:name="project.st991497190.vishvakumar.Fragments.ViewLogsFragment"
@@ -69,10 +59,6 @@
         <action
             android:id="@+id/action_viewLogsFragment_to_addLogFragment"
             app:destination="@id/addLogFragment" />
-        <action
-            android:id="@+id/action_viewLogsFragment_to_appFragment"
-            app:destination="@id/appFragment"
-            app:popUpTo="@id/appFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -85,10 +71,5 @@
     <fragment
         android:id="@+id/articleFragment"
         android:name="project.st991497190.vishvakumar.Fragments.ArticleFragment"
-        android:label="ArticleFragment" >
-        <action
-            android:id="@+id/action_articleFragment_to_appFragment"
-            app:destination="@id/appFragment"
-            app:popUpTo="@id/appFragment" />
-    </fragment>
+        android:label="Health Article"/>
 </navigation>

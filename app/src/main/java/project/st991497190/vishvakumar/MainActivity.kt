@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
             R.layout.activity_main)
 
         drawerLayout = binding.drawerLayout
-
         val navController = this.findNavController(R.id.NavHostFragment)
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         NavigationUI.setupWithNavController(binding.navView, navController)
