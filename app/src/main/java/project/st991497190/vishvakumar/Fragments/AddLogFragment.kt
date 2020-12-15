@@ -219,7 +219,6 @@ class AddLogFragment : Fragment() {
 
                             val date24Format = SimpleDateFormat("HH:mm")
 
-
                             dateField.text = nameMonth + " " + dayOfMonth + ", " + year + "    " +
                                     date12Format.format(date24Format.parse(time))
 
@@ -227,8 +226,6 @@ class AddLogFragment : Fragment() {
                         DateFormat.is24HourFormat(requireContext())
                     )
                     timePickerDialog.show()
-
-
                 },
                 mYear,
                 mMonth,

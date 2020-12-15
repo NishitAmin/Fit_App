@@ -40,6 +40,14 @@ class LoginFragment: Fragment() {
         target2.setVisible(true)
         val target3: MenuItem = menu.findItem(R.id.homeScreenFragment)
         target3.setVisible(false)
+        val target4: MenuItem = menu.findItem(R.id.bmiFragment)
+        target4.setVisible(false)
+        val target5: MenuItem = menu.findItem(R.id.addLogFragment)
+        target5.setVisible(false)
+        val target6: MenuItem = menu.findItem(R.id.viewLogsFragment)
+        target6.setVisible(false)
+        val target7: MenuItem = menu.findItem(R.id.articleFragment)
+        target7.setVisible(false)
 
         val application = requireNotNull(this.activity).application
         val loginDao = FitDatabase.getInstance(application).loginDao()
@@ -51,10 +59,10 @@ class LoginFragment: Fragment() {
                 Toast.makeText(activity, "Enter your PASSWORD!", Toast.LENGTH_SHORT).show()
             }else{
                 val user = loginDao.checkUser(editTextEmail.text.toString(), editTextPassword.text.toString())
-                UserObject.user = user
                 if(user==null){
                     Toast.makeText(activity, "Invalid Credentials", Toast.LENGTH_SHORT).show()
                 }else{
+                    UserObject.user = user
                     view?.findNavController()?.navigate(R.id.action_loginFragment_to_appFragment)
                 }
             }

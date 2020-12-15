@@ -34,7 +34,14 @@ class SignUpFragment: Fragment() {
         target2.setVisible(true)
         val target3: MenuItem = menu.findItem(R.id.homeScreenFragment)
         target3.setVisible(false)
-
+        val target4: MenuItem = menu.findItem(R.id.bmiFragment)
+        target4.setVisible(false)
+        val target5: MenuItem = menu.findItem(R.id.addLogFragment)
+        target5.setVisible(false)
+        val target6: MenuItem = menu.findItem(R.id.viewLogsFragment)
+        target6.setVisible(false)
+        val target7: MenuItem = menu.findItem(R.id.articleFragment)
+        target7.setVisible(false)
 
         val application = requireNotNull(this.activity).application
         val loginDao = FitDatabase.getInstance(application).loginDao()
