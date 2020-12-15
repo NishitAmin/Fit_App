@@ -174,15 +174,15 @@ class AddLogFragment : Fragment() {
                     addLogViewModel.selectedSpinnerIndex = position
                     if (position == 0) {
                         weightLiftingIsSelected()
-                        //mainView.exerciseImage.setImageResource(R.drawable.weightlifting)
+                        mainView.exerciseImage.setImageResource(R.drawable.weightlifting)
                     }
                     if (position == 1) {
                         runningIsSelected()
-                        //mainView.exerciseImage.setImageResource(R.drawable.running)
+                        mainView.exerciseImage.setImageResource(R.drawable.running)
                     }
                     if (position == 2) {
                         swimmingIsSelected()
-                        //mainView.exerciseImage.setImageResource(R.drawable.swimming)
+                        mainView.exerciseImage.setImageResource(R.drawable.swimming)
                     }
                 }else{
                     mainView.spinner.setSelection(exerciseType)

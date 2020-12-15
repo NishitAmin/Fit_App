@@ -1,30 +1,21 @@
 package project.st991497190.vishvakumar.Fragments
 
-//import org.rohan.patel.finalprojectandroid.R
-//import org.rohan.patel.finalprojectandroid.databinding.AppScreenBinding
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 import project.st991497190.vishvakumar.R
 import project.st991497190.vishvakumar.databinding.AppScreenBinding
-import java.util.zip.Inflater
-import kotlin.math.log
-
 
 class AppFragment: Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val binding = DataBindingUtil.inflate<AppScreenBinding>(
             inflater,
             R.layout.app_screen, container, false
@@ -51,9 +42,22 @@ class AppFragment: Fragment() {
             view?.findNavController()?.navigate(R.id.action_appFragment_to_viewLogsFragment)
         }
 
+        setHasOptionsMenu(true)
 
         return binding.root
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.options_menu, menu)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item!!
+            ,requireView().findNavController())  || super.onOptionsItemSelected(item)
+    }
+
 
 
 }
