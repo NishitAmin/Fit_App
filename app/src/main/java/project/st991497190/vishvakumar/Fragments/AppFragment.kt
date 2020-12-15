@@ -1,5 +1,6 @@
 package project.st991497190.vishvakumar.Fragments
 
+// Vishvakumar Mavani
 import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
@@ -9,8 +10,8 @@ import androidx.navigation.ui.NavigationUI
 import com.google.android.material.navigation.NavigationView
 import project.st991497190.vishvakumar.R
 import project.st991497190.vishvakumar.databinding.AppScreenBinding
-// Vishvakumar Mavani
-class AppFragment: Fragment() {
+
+class AppFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,7 +53,6 @@ class AppFragment: Fragment() {
 
         setHasOptionsMenu(true)
 
-
         return binding.root
     }
 
@@ -62,10 +62,9 @@ class AppFragment: Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item!!
-            ,requireView().findNavController())  || super.onOptionsItemSelected(item)
+        return NavigationUI.onNavDestinationSelected(
+            item!!, requireView().findNavController()
+        ) || super.onOptionsItemSelected(item)
     }
-
-
 
 }

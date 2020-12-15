@@ -40,23 +40,6 @@ class ViewLogsFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         database = FitDatabase.getInstance(application)
 
-        val navigationView = requireActivity().findViewById<NavigationView>(R.id.navView)
-        val menu = navigationView.menu
-        val target: MenuItem = menu.findItem(R.id.signUpFragment)
-        target.setVisible(false)
-        val target2: MenuItem = menu.findItem(R.id.loginFragment)
-        target2.setVisible(false)
-        val target3: MenuItem = menu.findItem(R.id.homeScreenFragment)
-        target3.setVisible(true)
-        val target4: MenuItem = menu.findItem(R.id.bmiFragment)
-        target4.setVisible(true)
-        val target5: MenuItem = menu.findItem(R.id.addLogFragment)
-        target5.setVisible(true)
-        val target6: MenuItem = menu.findItem(R.id.viewLogsFragment)
-        target6.setVisible(true)
-        val target7: MenuItem = menu.findItem(R.id.articleFragment)
-        target7.setVisible(true)
-
         // Binding
         val exerciseList = resources.getStringArray(R.array.exercisesList)
         val adapter = ArrayAdapter(container!!.context,android.R.layout.simple_list_item_1,exerciseList)
@@ -97,7 +80,6 @@ class ViewLogsFragment : Fragment() {
         }
 
         return binding.root
-
 
     }
 

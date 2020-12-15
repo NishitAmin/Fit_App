@@ -15,7 +15,6 @@ data class SwimmingEntity (
     @ColumnInfo (name  = "date")
     var date : String,
 
-
     @ColumnInfo(name = "speed")
     var speed : Float,
 

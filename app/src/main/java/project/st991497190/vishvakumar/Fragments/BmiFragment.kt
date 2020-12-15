@@ -24,28 +24,6 @@ class BmiFragment: Fragment() {
         var binding = DataBindingUtil.inflate<BmiScreenBinding>(inflater,
                 R.layout.bmi_screen,container,false)
 
-        val navigationView = requireActivity().findViewById<NavigationView>(R.id.navView)
-        val menu = navigationView.menu
-        val target: MenuItem = menu.findItem(R.id.signUpFragment)
-        target.setVisible(false)
-        val target2: MenuItem = menu.findItem(R.id.loginFragment)
-        target2.setVisible(false)
-        val target3: MenuItem = menu.findItem(R.id.homeScreenFragment)
-        target3.setVisible(true)
-        val target4: MenuItem = menu.findItem(R.id.bmiFragment)
-        target4.setVisible(true)
-        val target5: MenuItem = menu.findItem(R.id.addLogFragment)
-        target5.setVisible(true)
-        val target6: MenuItem = menu.findItem(R.id.viewLogsFragment)
-        target6.setVisible(true)
-        val target7: MenuItem = menu.findItem(R.id.articleFragment)
-        target7.setVisible(true)
-
-        val application = requireNotNull(this.activity).application
-        //val bmiDao = FitDatabase.getInstance(application).bmiDao()
-
-//        binding.textResult.movementMethod = ScrollingMovementMethod()
-
         binding.buttonCalculate.setOnClickListener {
             if(binding.inputWeight.text.isNotEmpty() && binding.inputHeight.text.isNotEmpty()){
                 var bmi = 0.0
