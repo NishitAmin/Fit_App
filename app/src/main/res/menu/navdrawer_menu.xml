@@ -7,6 +7,18 @@
         android:id="@+id/loginFragment"
         android:title="@string/login" />
     <item
+        android:id="@+id/bmiFragment"
+        android:title="@string/bmi" />
+    <item
+        android:id="@+id/addLogFragment"
+        android:title="@string/addLogs" />
+    <item
+        android:id="@+id/viewLogsFragment"
+        android:title="@string/viewLogs" />
+    <item
+        android:id="@+id/articleFragment"
+        android:title="@string/article" />
+    <item
         android:id="@+id/homeScreenFragment"
         android:title="@string/logout" />
 </menu>

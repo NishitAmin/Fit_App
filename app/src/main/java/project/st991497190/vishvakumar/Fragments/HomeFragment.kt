@@ -15,9 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import project.st991497190.vishvakumar.R
 import project.st991497190.vishvakumar.databinding.HomeScreenBinding
 
-
 class HomeFragment: Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +27,6 @@ class HomeFragment: Fragment() {
             R.layout.home_screen, container, false
         )
 
-
         val navigationView = requireActivity().findViewById<NavigationView>(R.id.navView)
         val menu = navigationView.menu
         val target: MenuItem = menu.findItem(R.id.signUpFragment)
@@ -38,6 +35,14 @@ class HomeFragment: Fragment() {
         target2.setVisible(true)
         val target3: MenuItem = menu.findItem(R.id.homeScreenFragment)
         target3.setVisible(false)
+        val target4: MenuItem = menu.findItem(R.id.bmiFragment)
+        target4.setVisible(false)
+        val target5: MenuItem = menu.findItem(R.id.addLogFragment)
+        target5.setVisible(false)
+        val target6: MenuItem = menu.findItem(R.id.viewLogsFragment)
+        target6.setVisible(false)
+        val target7: MenuItem = menu.findItem(R.id.articleFragment)
+        target7.setVisible(false)
 
         binding.buttonGetStarted.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_homeScreenFragment_to_signUpFragment)
@@ -46,7 +51,6 @@ class HomeFragment: Fragment() {
         binding.buttonGoToLogin.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_homeScreenFragment_to_loginFragment)
         }
-
 
         return binding.root
     }
