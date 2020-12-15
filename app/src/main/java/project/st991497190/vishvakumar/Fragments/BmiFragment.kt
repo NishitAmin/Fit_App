@@ -4,11 +4,13 @@ package project.st991497190.vishvakumar.Fragments
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.bmi_screen.*
 //import org.rohan.patel.finalprojectandroid.R
 //import org.rohan.patel.finalprojectandroid.databinding.BmiScreenBinding
@@ -21,6 +23,23 @@ class BmiFragment: Fragment() {
 
         var binding = DataBindingUtil.inflate<BmiScreenBinding>(inflater,
                 R.layout.bmi_screen,container,false)
+
+        val navigationView = requireActivity().findViewById<NavigationView>(R.id.navView)
+        val menu = navigationView.menu
+        val target: MenuItem = menu.findItem(R.id.signUpFragment)
+        target.setVisible(false)
+        val target2: MenuItem = menu.findItem(R.id.loginFragment)
+        target2.setVisible(false)
+        val target3: MenuItem = menu.findItem(R.id.homeScreenFragment)
+        target3.setVisible(true)
+        val target4: MenuItem = menu.findItem(R.id.bmiFragment)
+        target4.setVisible(true)
+        val target5: MenuItem = menu.findItem(R.id.addLogFragment)
+        target5.setVisible(true)
+        val target6: MenuItem = menu.findItem(R.id.viewLogsFragment)
+        target6.setVisible(true)
+        val target7: MenuItem = menu.findItem(R.id.articleFragment)
+        target7.setVisible(true)
 
         val application = requireNotNull(this.activity).application
         //val bmiDao = FitDatabase.getInstance(application).bmiDao()
