@@ -27,8 +27,10 @@
         android:name="project.st991497190.vishvakumar.Fragments.BmiFragment"
         android:label="Body Mass Index" >
         <action
-            android:id="@+id/action_bmiFragment_to_homeScreenFragment"
-            app:destination="@id/homeScreenFragment" />
+            android:id="@+id/action_bmiFragment_to_appFragment"
+            app:destination="@id/appFragment"
+            app:popUpTo="@id/appFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/appFragment"

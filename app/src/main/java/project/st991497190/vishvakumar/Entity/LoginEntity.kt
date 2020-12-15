@@ -6,7 +6,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.net.PasswordAuthentication
 
-
+// Nishit Amin
 @Entity(tableName = "Login")
 class LoginEntity (
 

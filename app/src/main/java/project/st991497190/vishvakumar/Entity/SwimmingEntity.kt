@@ -1,5 +1,5 @@
 package project.st991497190.vishvakumar.Entity
-// Rohan Patel - 991496523
+// Vishvakumar Mavani
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -15,14 +15,6 @@ data class SwimmingEntity (
     @ColumnInfo (name  = "date")
     var date : String,
 
-//    @ColumnInfo(name = "reps")
-//    var reps : Float,
-//
-//    @ColumnInfo(name="sets")
-//    var sets : Int,
-//
-//    @ColumnInfo(name = "weight")
-//    var weight : String,
 
     @ColumnInfo(name = "speed")
     var speed : Float,

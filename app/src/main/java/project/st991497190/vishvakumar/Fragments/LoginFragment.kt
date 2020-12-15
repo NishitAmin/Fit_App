@@ -1,5 +1,6 @@
 package project.st991497190.vishvakumar.Fragments
 
+// Nishit Amin
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -66,6 +67,7 @@ class LoginFragment: Fragment() {
                     view?.findNavController()?.navigate(R.id.action_loginFragment_to_appFragment)
                 }
             }
+            //view?.findNavController()?.navigate(R.id.action_loginFragment_to_appFragment)
         }
 
         return binding.root

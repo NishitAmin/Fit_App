@@ -9,7 +9,7 @@ import androidx.navigation.ui.NavigationUI
 import com.google.android.material.navigation.NavigationView
 import project.st991497190.vishvakumar.R
 import project.st991497190.vishvakumar.databinding.AppScreenBinding
-
+// Vishvakumar Mavani
 class AppFragment: Fragment() {
 
     override fun onCreateView(
@@ -52,6 +52,7 @@ class AppFragment: Fragment() {
 
         setHasOptionsMenu(true)
 
+
         return binding.root
     }
 
@@ -59,7 +60,6 @@ class AppFragment: Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
         inflater?.inflate(R.menu.options_menu, menu)
     }
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item!!

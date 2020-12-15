@@ -1,5 +1,5 @@
 package project.st991497190.vishvakumar.viewModels
-// Rohan Patel - 991496523
+// Nishit Amin
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -51,34 +51,3 @@ class RunningViewModel(val runningDao: RunningDao) : ViewModel() {
         }
     }
 }
-
-
-//package org.rohan.patel.finalprojectandroid.viewModels
-//
-//import android.util.Log
-//import androidx.lifecycle.ViewModel
-//import org.jetbrains.anko.doAsync
-//import project.st991497190.vishvakumar.Dao.RunningDao
-//import project.st991497190.vishvakumar.Entity.RunningEntity
-//import kotlin.math.log
-//
-//class RunningViewModel(val runningDao: RunningDao) : ViewModel() {
-//    fun insert(distance:String,speed:String){
-//        if(distance!!.isEmpty() || speed!!.isEmpty()){
-//            Log.d("EMPTY", "onAddButtonClick: FIELDS CANNOT BE EMPTY")
-//        }else{
-//            doAsync {
-//                val newExercise = RunningEntity(0,"",distance.toFloat(),speed.toFloat())
-//                runningDao.insert(newExercise)
-//                Log.d("INSERT", "insert: Inserted running exercise")
-//            }
-//        }
-//    }
-//
-//    fun select(){
-//        doAsync {
-//            val logs = runningDao.getAll()
-//            Log.d("SIZE", "select: Size of running logs is "+ logs.size)
-//        }
-//    }
-//}
